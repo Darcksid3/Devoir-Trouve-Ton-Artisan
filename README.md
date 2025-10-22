@@ -6,7 +6,7 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
 ## Feuille de route
 
 - Création des maquettes Mobiles, tablettes et ordinateur.
-- Création de la base de donnée.
+- Création de la base de donnée(AnnuaireArtisans).
 - Mise en place de la partie backend.
 - Mise en place de la partie frontend.
 - rédaction du projet complet sous format PDF.
@@ -16,8 +16,9 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
 1. Création des maquettes Mobiles, tablettes et ordinateur.
     - ✅ Mobile (portrait, paysage) Tablette (Portrait) (Wireframe et Maquette)
     - ✅ Desktop et Tablette (Paysage)
-2. Création de la base de donnée.\
-    :x: Non débuté.
+2. Création de la base de donnée mariadb.\
+    - ✅ Céation et alimentation de la base de donée par fichier Sql\
+    - ✅ AnnuaireArtisans
 3. Mise en place de la partie backend.\
     :x: Non débuté.
 4. Mise en place de la partie frontend.\
