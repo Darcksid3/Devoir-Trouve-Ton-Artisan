@@ -34,7 +34,6 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
 2) Mise en place et téléchargement des divers outils (Windows).
     <b>MariaDB</b>(en local)
     - => Fichier d'installation [Téléchargement][downloadMariaDB]
-    - => Lien vers le [Tutoriel][tutorielMariaDB]
 
 
 ***
