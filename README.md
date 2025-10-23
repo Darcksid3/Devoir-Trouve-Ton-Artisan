@@ -20,20 +20,30 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     - ✅ Céation et alimentation de la base de donée par fichier Sql\
     - ✅ AnnuaireArtisans
 3. Mise en place de la partie backend.
-    :x: Non débuté.
+    :x: Création du serveur de base et des modules.
 4. Mise en place de la partie frontend.
     :x: Non débuté.
 5. rédaction du projet complet sous format PDF.
     :x: Non débuté.
 
 ## Utilisation 
-1) <b>Explication des outils.</b>
-    <b>MariaDB</b>\
+1) **Explication des outils.**
+     - **MariaDB**\
     MariaDB vas nous permètre de géré une base de donnée relationelle en toute sécurité, d'y travailler en local et ensuite de pouvoir l'exporter en ligne en fonction de notre serveur.
+     - **Express**
+     Express vas crée un serveur pour nous permetre d'intérroger la base de donnée.
+     - **Sequelize**
+     Ce module pour express vas lui permettre de se conecter à la base de donnée
+     grace à des schémas pour vérifier que les demande soit correcte
 
 2) Mise en place et téléchargement des divers outils (Windows).
-    <b>MariaDB</b>(en local)
-    - => Fichier d'installation [Téléchargement][downloadMariaDB]
+    - **MariaDB**(en local)
+        => Fichier d'installation [Téléchargement][downloadMariaDB]
+    - **Express**
+        => `npm i express`
+    - **Sequelize**
+        => `npm i sequelize`
+
 
 
 ***
