@@ -32,9 +32,8 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     MariaDB vas nous permètre de géré une base de donnée relationelle en toute sécurité, d'y travailler en local et ensuite de pouvoir l'exporter en ligne en fonction de notre serveur.
      - **Express**
      Express vas crée un serveur pour nous permetre d'intérroger la base de donnée.
-     - **Sequelize**
-     Ce module pour express vas lui permettre de se conecter à la base de donnée
-     grace à des schémas pour vérifier que les demande soit correcte
+     - **Librairies Mariadb Sequelize cors**
+     Ces modules pour express vont nous permettre de nous conecté à la base de donnée de traité avec elle et d'identifier les apel authorisé a l'api.
 
 2) Mise en place et téléchargement des divers outils (Windows).
     - **MariaDB**(en local)
@@ -42,7 +41,7 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     - **Express**
         => `npm i express`
     - **Sequelize**
-        => `npm i sequelize`
+        => `npm i mariadb sequelize cors`
 
 
 
