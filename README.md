@@ -20,7 +20,7 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     - ✅ Céation et alimentation de la base de donée par fichier Sql\
     - ✅ AnnuaireArtisans
 3. Mise en place de la partie backend.
-    :x: Création du serveur de base et des modules.
+    - ✅ Mise en place des routes des service et de la connection a la base de donnée en version de test.
 4. Mise en place de la partie frontend.
     :x: Non débuté.
 5. rédaction du projet complet sous format PDF.
