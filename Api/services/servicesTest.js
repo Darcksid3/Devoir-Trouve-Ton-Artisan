@@ -47,37 +47,76 @@ exports.spécialiteParId = async (req,res,next) => {
 exports.artisansParCategorie = async (req,res,next) => {
     const cat = req.params.categorie;
     C.log('green', `catégorie select => ${cat} `);
-	
-	// Assurez-vous d'importer vos modèles au préalable
 
-	const artisans = await models.Artisans.findAll({
-		// Sélectionne tous les attributs de la table Artisans
-		attributes: ['nom_entreprise','note', 'ville', 'id_artisan'], 
-		
-		// Jointure imbriquée : Artisans -> Specialites -> Categories
-		include: [{
-			model: models.Specialites,
-			as: 'Specialite',
-			attributes: ['nom_specialite'], // Attributs de la spécialité à inclure
-			required: true, // Ceci garantit que seuls les artisans qui ont une spécialité seront inclus (INNER JOIN)
-			
-			include: [{
-				model: models.Categories,
-				as: 'Categorie',
-				attributes: [], // N'a pas besoin de sélectionner les colonnes de Catégorie
-				required: true, // INNER JOIN
-				
-				// Condition de filtrage sur le nom de la catégorie
-				where: {
-					nom_categorie: `${cat}` // Remplacez par le nom exact dans votre DB ('Batiment', 'Bâtiment', etc.)
-				}
-			}]
-		}]
-	});
+    try {
+        C.log('magenta', 'Début try');
 
-	// Affiche le résultat
-	console.log(artisans);
-	res.json({ cat: cat, artisans: artisans  });
+        //* Vérification que la catégorie existe
+        // On utilise directement AWAIT et on stocke le résultat
+        const findCategorie = await models.Categories.findAll({
+            attributes :['id_categorie','nom_categorie'],
+            where: {
+                nom_categorie: `${cat}`
+            }
+        });
+
+        //* Vérification si la catégorie est trouvée (logique métier)
+        if (findCategorie.length === 0) {
+            C.log('yellow', `Catégorie non trouvée: ${cat}`);
+            // On stoppe l'exécution
+            return res.status(404).json({
+				page : 404,
+                message: 'NOT FOUND', 
+                categorie: null, 
+                error: `La catégorie '${cat}' n'existe pas.`
+            });
+        }
+        
+        // --- CAS SUCCÈS : La catégorie existe, on continue ---
+        
+        C.log('green', `Catégorie trouvée : ${cat}`);
+        
+        //*  Recherche des artisans par catégorie
+        const artisans = await models.Artisans.findAll({
+            attributes: ['nom_entreprise','note', 'ville', 'id_artisan'],
+				include:[{
+                model: models.Specialites,
+                as: 'Specialite',
+                attributes: ['nom_specialite'],
+                required: true, 
+                
+                include: [{
+                    model: models.Categories,
+                    as: 'Categorie',
+                    attributes: [], 
+                    required: true, 
+                    
+                    where: {
+                        nom_categorie: `${cat}`
+                    }
+                }]}]
+            })
+        
+
+        //*Renvoy des résultats
+        console.log(artisans);
+        return res.json({ 
+			page: cat, 
+			artisans: artisans 
+		});
+
+    } catch (error) {
+        // Gère les erreurs techniques imprévues
+        C.log('red', `Catch error: ${error.message}`);
+        // Utilisation de 500 pour les erreurs de serveur/base de données
+        return res.status(500).json({ 
+			page: 404,
+            message: 'ERROR', 
+            categorie: null, 
+            error: 'Erreur interne du serveur lors de la recherche des artisans.',
+            detail: error.message
+        });
+    }
 }
 
 exports.artisansDuMois = async (req,res) => {

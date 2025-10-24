@@ -12,7 +12,7 @@ const servicesTest = require('../services/servicesTest');
 
 router.get('/artisansdumois', servicesTest.artisansDuMois);
 //TODO A supprimer utile pour test
-router.get('/toutespecialites', servicesTest.toutesLesSpecialites);
+//*router.get('/toutespecialites', servicesTest.toutesLesSpecialites);
 
 router.get('/toutescategories', servicesTest.toutesLesCategories);
 
@@ -20,9 +20,9 @@ router.get('/artisanparid/:id', servicesTest.chercheUnArtisan);
 
 router.get('/artisanparnom/:nom', servicesTest.artisanParNom);
 //TODO A supprimer utile pour test
-router.get('/specialiteparid/:id', servicesTest.spécialiteParId);
+//*router.get('/specialiteparid/:id', servicesTest.spécialiteParId);
 
-router.get('/artisanparcategories/:categorie', servicesTest.artisansParCategorie);
+router.get('/artisansparcategories/:categorie', servicesTest.artisansParCategorie);
 
 router.get("/", (req,res) => {
     C.log('green', 'requette /api')
