@@ -7,11 +7,11 @@ const C = require('../script/debug');
 
 
 //*Services
-const servicesBdd = require('../services/servicesTest');
+const servicesBdd = require('../services/servicesBdd');
 
 router.get('/artisansdumois', servicesBdd.artisansDuMois);
 
-router.get('/toutescategories', servicesBdd.toutesLesCategories);
+router.get('/touteslescategories', servicesBdd.toutesLesCategories);
 
 router.get('/artisanparid/:id', servicesBdd.chercheUnArtisan);
 
