@@ -178,9 +178,7 @@ exports.artisanParNom = async (req,res) => {
                     nom_trouvé: nomArtisan[i].nom_entreprise, 
                     artisans: artisans
                 })
-            } else {
-                return res.json({page:404, message: `le nom ${nom} n'as pas été trouvé`})
-            }
+            } 
         }
         return res.json({page:404, message: `le nom ${nom} n'as pas été trouvé`})
     } catch (error) {

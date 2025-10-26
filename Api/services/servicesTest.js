@@ -268,9 +268,8 @@ exports.artisanParNom = async (req,res) => {
 					artisans: artisans
 				})
 			} else { 
-				C.log('red', 'Nom pas OK')
-				return res.json({page:404, message: `le nom ${nom} n'as pas été trouvé`})
-			}
+				C.log('red', `${i} => ${nom} => ${nomArtisan[i].nom_entreprise}`)
+				}
 		}
 		C.log('cyan', JSON.stringify(nomArtisan))
 		return res.json({page:404, message: `le nom ${nom} n'as pas été trouvé`})

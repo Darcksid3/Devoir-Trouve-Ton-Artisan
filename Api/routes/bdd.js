@@ -15,15 +15,11 @@ router.get('/touteslescategories', servicesBdd.toutesLesCategories);
 
 router.get('/artisanparid/:id', servicesBdd.chercheUnArtisan);
 
+router.get('/artisanparnom/:nom', servicesBdd.artisanParNom);
+
 router.get('/artisansparcategories/:categorie', servicesBdd.artisansParCategorie);
 
-router.get("/", (req,res) => {
-    C.log('green', 'requette /api')
-    C.log('yellow', req.ip.slice(7))
-    const lIp = req.ip.slice(7);
-    const votreIp = `Votre IP est : ${lIp}`
-    res.json({ "api": [votreIp, "Trouve", "Ton", "Artisan"]})
-})
+router.get("/", servicesBdd.connection)
 
 
 
