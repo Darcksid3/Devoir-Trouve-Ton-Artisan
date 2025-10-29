@@ -66,7 +66,7 @@ exports.artisansDuMois = async (req,res) => {
             where: {
                 top_artisan: 1 
             },
-            attributes: ['nom_entreprise','note', 'ville'],
+            attributes: ['id_artisan', 'nom_entreprise','note', 'ville'],
                 include: [{
                 model: models.Specialites,
                 as: 'Specialite',
@@ -187,7 +187,7 @@ exports.artisanParNom = async (req,res) => {
     
 };
 
-exports.connection = async (req,res) => {
+exports.connexion = async (req,res) => {
     //* Récupération à la connection 
     //* des catégories pour le menu
     //* des nom d'artisans et pour la recherche par nom(cela évite mutiple apel à la bdd a chaque lettre tapé)
@@ -207,7 +207,7 @@ exports.connection = async (req,res) => {
             where: {
                 top_artisan: 1 
             },
-            attributes: ['nom_entreprise','note', 'ville'],
+            attributes: ['id_artisan', 'nom_entreprise','note', 'ville'],
                 include: [{
                 model: models.Specialites,
                 as: 'Specialite',

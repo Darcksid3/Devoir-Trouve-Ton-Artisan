@@ -19,7 +19,7 @@ router.get('/artisanparnom/:nom', servicesBdd.artisanParNom);
 
 router.get('/artisansparcategories/:categorie', servicesBdd.artisansParCategorie);
 
-router.get("/", servicesBdd.connection)
+router.get("/", servicesBdd.connexion)
 
 
 

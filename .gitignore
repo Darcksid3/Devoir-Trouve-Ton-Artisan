@@ -1,6 +1,6 @@
 /Ressource
 /Api/node_modules
 /Api/env
-/routes.test.js
-/services/servicesTest.js
-/script
+/Api/routes/test.js
+/Api/services/servicesTest.js
+/Api/script
