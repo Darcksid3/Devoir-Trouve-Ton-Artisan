@@ -1,0 +1,19 @@
+{
+  "name": "devoirtta",
+  "version": "1.0.0",
+  "description": "Création d'un site web pour la région rhone-alpe permétant de trouver facilement un artisant en fonction de ces besoins.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darcksid3/Devoir-Trouve-Ton-Artisan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darcksid3/Devoir-Trouve-Ton-Artisan/issues"
+  },
+  "homepage": "https://github.com/Darcksid3/Devoir-Trouve-Ton-Artisan#readme"
+}
