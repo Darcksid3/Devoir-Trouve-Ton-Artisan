@@ -1,4 +1,3 @@
-import NavigationTest from '../Components/NavigationTest';
 
 
 const NotFoundPage = () => {
@@ -6,11 +5,9 @@ const NotFoundPage = () => {
     return (
 
         <div>
-            <h2>Page Non Trouvé!</h2>
-            <hr></hr>
-                        <NavigationTest />
+            <h2>Page Non Trouvé</h2>
         </div>
-    );
+    )
 };
 
 export default NotFoundPage;
