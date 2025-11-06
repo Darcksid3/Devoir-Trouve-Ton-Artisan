@@ -4,7 +4,7 @@ import ky from 'ky';
 import { Container, Row, Col } from 'react-bootstrap';
 import Formulaire from '../Components/Formulaire';
 import RatingStars from '../Components/RatingStars';
-
+import MetaInfo from '../Components/Helmet';
 
 
 const fetchArtisans = async (idArtisan) => {
@@ -54,33 +54,41 @@ const Artisan = () => {
             return <p style={{ color: 'red' }}>Erreur : {error}</p>;
         }
     return (
-        <Container>
-            <Row className='d-flex flex-column justify-content-center text-center border border-2 border-danger'>
+        <main>
+            <MetaInfo
+                title="Trouve ton artisan"
+                content="Fiche de l'artisan avec ces informations complètes"
+                robots="index, follow"
                 
-                <h3>{artisans?.nom_entreprise}</h3>
-            </Row>
-            <Row className='border border-2 border-danger m-5'>
-                <Col className='sm-12 md-6 d-flex flex-row align-items-center'>
-                    <img className='w-50' src="/images/no-image.jpg" alt="Photo artisan" />
+            />
+            <Container>
+                <Row className='d-flex flex-column justify-content-center text-center border border-2 border-danger'>
                     
-                </Col>
-                
-                <Col className='sm-12 md-6 d-flex flex-column justify-content-center'>
-                    <RatingStars note={artisans?.note} /> / {artisans?.note}
-                    <p>{artisans?.Specialite?.nom_specialite}</p>
-                    <p>{artisans?.ville}</p>
-                    <p><Link to={artisans?.site_web}>{artisans?.site_web}</Link></p>
-                </Col>
-            </Row>
+                    <h3>{artisans?.nom_entreprise}</h3>
+                </Row>
+                <Row className='border border-2 border-danger m-5'>
+                    <Col className='sm-12 md-6 d-flex flex-row align-items-center'>
+                        <img className='w-50' src="/images/no-image.jpg" alt="Photo artisan" />
+                        
+                    </Col>
+                    
+                    <Col className='sm-12 md-6 d-flex flex-column justify-content-center'>
+                        <RatingStars note={artisans?.note} /> / {artisans?.note}
+                        <p>{artisans?.Specialite?.nom_specialite}</p>
+                        <p>{artisans?.ville}</p>
+                        <p><Link to={artisans?.site_web}>{artisans?.site_web}</Link></p>
+                    </Col>
+                </Row>
 
-            <Row className='text-center border border-2 border-danger '>
-                <p>{artisans?.a_propos}</p>
-            </Row>
+                <Row className='text-center border border-2 border-danger '>
+                    <p>{artisans?.a_propos}</p>
+                </Row>
 
-            <Row className='border border-2 border-danger '>
-                <Formulaire />
-            </Row>
-        </Container>
+                <Row className='border border-2 border-danger '>
+                    <Formulaire />
+                </Row>
+            </Container>
+        </main>
     )
 };
 

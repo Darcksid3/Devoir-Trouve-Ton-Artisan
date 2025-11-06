@@ -1,11 +1,16 @@
 import React from 'react';
 import {Container, Row} from "react-bootstrap";
-
+import MetaInfo from '../Components/Helmet';
 
 const PolitiqueConfidentialite = () => {
     return (
-        <div className="text-center">   
-            
+        <main className="text-center">   
+            <MetaInfo
+                title="Trouve ton artisan"
+                content="Page de politique de confidentialité du site Trouve ton artisan"
+                robots="noindex, nofollow"
+                
+            />
 
             <Container className="text-center">
                 <Row>
@@ -15,7 +20,7 @@ const PolitiqueConfidentialite = () => {
                     <img src="/images/enConstruction.png" className='w-25' alt="En Construction" />
                 </Row>
             </Container>    
-        </div>
+        </main>
     );
 }   
 export default PolitiqueConfidentialite;

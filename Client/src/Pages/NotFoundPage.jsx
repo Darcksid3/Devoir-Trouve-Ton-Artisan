@@ -1,12 +1,18 @@
 import React from 'react';
 import {Container, Row} from "react-bootstrap";
-
+import MetaInfo from '../Components/Helmet';
 const NotFoundPage = () => {
 
     return (
 
-        <div>
+        <main>
             
+            <MetaInfo
+                title="Trouve ton artisan"
+                content="Page d'erreur 404 - La page demandée est introuvable"
+                robots="index, follow"
+                
+            />
             <Container>
                 <Row className="text-center mt-5">
                     
@@ -15,7 +21,7 @@ const NotFoundPage = () => {
                     
                 </Row>
             </Container>
-        </div>
+        </main>
     )
 };
 
