@@ -2,10 +2,16 @@ import React from 'react';
 import {Container, Row} from "react-bootstrap";
 
 
+
 const PolitiqueCookies = () => {
     return (
-        <div className="text-center">
-            
+        <main className="text-center">
+            <MetaInfo
+                title="Trouve ton artisan"
+                content="Page de politique des cookies du site Trouve ton artisan"
+                robots="noindex, nofollow"
+                
+            />
 
             <Container className="text-center">
                 <Row>
@@ -15,7 +21,7 @@ const PolitiqueCookies = () => {
                     <img src="/images/enConstruction.png" className='w-25' alt="En Construction" />
                 </Row>
             </Container>
-        </div>
+        </main>
     );
 }   
 export default PolitiqueCookies;

@@ -1,10 +1,16 @@
 
 import React from 'react';
 import {Container, Row} from "react-bootstrap";
-
+import MetaInfo from '../Components/Helmet';
 const Accessibilite = () => {
     return (
-        <div >   
+        <main>   
+            <MetaInfo
+                title="Trouve ton artisan"
+                content="Page d'accéssibilité du site Trouve ton artisan"
+                robots="noindex, nofollow"
+                
+            />
             <Container className="text-center">
                 <Row>
                     <h1>Page d'Accessibilité</h1>
@@ -13,7 +19,7 @@ const Accessibilite = () => {
                     <img src="/images/enConstruction.png" className='w-25' alt="En Construction" />
                 </Row>
             </Container>
-        </div>
+        </main>
     );
 }
 export default Accessibilite;
