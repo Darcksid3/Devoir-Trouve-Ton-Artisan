@@ -5,7 +5,7 @@ const STAR_COLOR = "#ffc107"; // Couleur jaune (warning de Bootstrap)
 const EMPTY_COLOR = "#e4e5e9"; // Couleur grise
 
 const RatingStars = ({ note }) => {
-    // Le nombre total d'étoiles que nous voulons afficher
+    // Le nombre total d'étoiles
     const MAX_STARS = 5; 
     
     // Le nombre d'étoiles pleines (partie entière de la note)
@@ -24,7 +24,7 @@ const RatingStars = ({ note }) => {
             stars.push(
                 <i 
                     key={i} 
-                    className="bi bi-star-fill" // Utilisez bi-star-fill pour une étoile pleine
+                    className="bi bi-star-fill" 
                     style={{ color: STAR_COLOR }}
                 ></i>
             );
@@ -51,7 +51,7 @@ const RatingStars = ({ note }) => {
                         style={{ 
                             color: STAR_COLOR, 
                             position: 'absolute',
-                            // 💥 La clé du remplissage : clip-path
+                            // remplissage : clip-path
                             clipPath: `inset(0 ${100 - partialStarPercentage}% 0 0)`
                         }}
                     ></i>
@@ -62,7 +62,7 @@ const RatingStars = ({ note }) => {
             stars.push(
                 <i 
                     key={i} 
-                    className="bi bi-star" // Utilisez bi-star pour une étoile vide
+                    className="bi bi-star" 
                     style={{ color: EMPTY_COLOR }}
                 ></i>
             );

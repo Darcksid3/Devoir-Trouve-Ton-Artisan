@@ -2,22 +2,25 @@
 import {Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+
 
 function MainLayout() {
 
     return (
         <>
-            {/* Le Header */}
-            
+            {/* 1. Le Header Commun à Toutes les Pages */}
+            <Header />
 
-            {/* La Zone de Contenu Spécifique à la Route */}
+            {/* 2. La Zone de Contenu Spécifique à la Route */}
             <Container className="mt-4">
-                {/* L'Outlet Permet de rendre le contenu du composant de route correspondant */}
+                {/* L'Outlet rendra le contenu */}
                 <Outlet />
             </Container>
 
-            {/* 3.Le Footer */}
-            
+            {/* 3. Un Footer comun à toutes les pages */}
+            <Footer />
         
         </>
     );

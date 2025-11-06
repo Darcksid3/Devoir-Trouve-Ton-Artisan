@@ -3,9 +3,13 @@ import ky from 'ky';
 
 import MiniCard from "./MiniCard";
 
+
 const fetchArtisan = async () => {
     try{
-        const responce = await ky(`http://localhost:8100/artisansdumois`).json();
+        const http = process.env.REACT_APP_URL_API_WIN;
+const port = process.env.REACT_APP_PORT_API;
+const url = `${http}:${port}`;
+        const responce = await ky(`${url}/artisansdumois`).json();
         return responce.artisans;
 
     } catch(error) {
@@ -33,10 +37,7 @@ function ArtisanDuMois() {
 
     return (
         <div>
-            <h3>entreprise du mois</h3>
-                
-                
-                
+            <h3>Artisans du mois</h3>
                     {artisans.map((artisans,index) => (
                 <div key={index}>
                     <MiniCard 

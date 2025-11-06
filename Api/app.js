@@ -22,7 +22,7 @@ app.use(cors(corsOption));
 
 
 const models = require('./dbConnect/modelRelations');
-const PORT = process.env.PORT || 8100;
+const PORT = process.env.PORT || 8101;
 
 const startServer = async () => {
     try {

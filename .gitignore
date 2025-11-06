@@ -5,3 +5,6 @@
 /Api/services/servicesTest.js
 /Api/script
 /Client/node_modules
+/Client/.env.production
+/Client/.env.development
+/Client/build

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; 
 import ky from 'ky'; 
-
+import { Container, Row, Col } from 'react-bootstrap';
 import MiniCard from '../Components/MiniCard';
+
+
 
 const fetchArtisansByCategorie = async (categorieNom) => {
 
-    const url = `http://localhost:8100/artisansparcategories/${categorieNom}`; 
-    try {
-        const response = await ky(url).json();
+    try {const http = process.env.REACT_APP_URL_API_WIN;
+        const port = process.env.REACT_APP_PORT_API;
+        const url = `${http}:${port}`;
+        const response = await ky(`${url}/artisansparcategories/${categorieNom}`).json();
 
         return response.artisans || response; 
     } catch (error) {
@@ -51,25 +54,28 @@ const Categories = () => {
     }
 
     return (
-        <div>
+        <Container>
+            <Row className='text-center'>
             <h2>Artisans de la catégorie : {categorie}</h2>
-            
-            {artisans.length === 0 ? (
-                <p>Aucun artisan trouvé dans cette catégorie.</p>
-            ) : (
-                artisans.map((artisan, index) => (
-                    <div key={index} className="artisan-item">
-                        <MiniCard 
-                        idArtisan = {artisan?.id_artisan}
-                        nom = {artisan?.nom_entreprise}
-                        note = {artisan?.note}
-                        ville = {artisan?.ville}
-                        specialite = {artisan?.Specialite?.nom_specialite}
-                    />
-                    </div>
-                ))
-            )}
-        </div>
+            </Row>
+            <Row className="d-flex flex-row justify-content-around">
+                {artisans.length === 0 ? (
+                    <p>Aucun artisan trouvé dans cette catégorie.</p>
+                ) : (
+                    artisans.map((artisan, index) => (
+                        <div key={index} className='div-minicard-size'>
+                            <MiniCard 
+                            idArtisan = {artisan?.id_artisan}
+                            nom = {artisan?.nom_entreprise}
+                            note = {artisan?.note}
+                            ville = {artisan?.ville}
+                            specialite = {artisan?.Specialite?.nom_specialite}
+                        />
+                        </div>
+                    ))
+                )}
+            </Row>
+        </Container>
     );
 };
 

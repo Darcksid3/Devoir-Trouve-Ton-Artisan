@@ -192,7 +192,21 @@ exports.connexion = async (req,res) => {
     //* des catégories pour le menu
     //* des nom d'artisans et pour la recherche par nom(cela évite mutiple apel à la bdd a chaque lettre tapé)
     //* des artisan du mois pour la page d'accueil
-    
+    const getClientIp = (req) => {
+    // 1. Vérifier l'en-tête X-Forwarded-For (utilisé par les proxys comme AlwaysData)
+    // L'en-tête peut contenir une liste d'IPs (ex: "client_ip, proxy1_ip, proxy2_ip")
+        const forwarded = req.headers['x-forwarded-for'];
+
+        if (forwarded) {
+            // Retourner la première IP (celle du client)
+            return forwarded.split(',')[0].trim();
+        } 
+
+        // 2. Revenir à l'IP de la connexion directe (mode local)
+        return req.connection.remoteAddress || req.socket.remoteAddress;
+    }
+    const ip = getClientIp(req);
+    console.log('Nouvelle connexion à l\'API'+ ip);
     try{
         //* Catégories
         const categories = await models.Categories.findAll({
@@ -216,7 +230,8 @@ exports.connexion = async (req,res) => {
             }]
         });
         //* Info spéciale et retour
-            const lIp = req.ip.slice(7);
+            console.log(req.ip);
+            const lIp = ip.slice(7);
             const votreIp = `Votre IP est : ${lIp}`
             res.json({
                 connection_ip: votreIp,
