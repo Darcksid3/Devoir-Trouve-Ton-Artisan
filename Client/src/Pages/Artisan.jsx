@@ -10,9 +10,10 @@ import MetaInfo from '../Components/Helmet';
 const fetchArtisans = async (idArtisan) => {
 
     
-    try {const http = process.env.REACT_APP_URL_API_WIN;
-const port = process.env.REACT_APP_PORT_API;
-const url = `${http}:${port}`;
+    try {
+        const http = process.env.REACT_APP_URL_API_WIN;
+        const port = process.env.REACT_APP_PORT_API;
+        const url = `${http}:${port}`;
         const responce = await ky(`${url}/artisanparid/${idArtisan}`).json();
         return responce.artisans || responce;
     }catch (error) {
@@ -24,7 +25,7 @@ const url = `${http}:${port}`;
 const Artisan = () => {
     const { idArtisan } = useParams();
 
-    const [artisans, setArtisans] = useState([]);
+    const [artisansData, setArtisansData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -34,7 +35,7 @@ const Artisan = () => {
             
             fetchArtisans(idArtisan)
                 .then(data => {
-                    setArtisans(data);
+                    setArtisansData(data);
                 })
                 .catch(err => {
                     setError(err.message);
@@ -47,12 +48,16 @@ const Artisan = () => {
     
         
         if (isLoading) {
-            return <p>Chargement des artisans {artisans}...</p>;
+            return <p>Chargement des artisans ...</p>;
         }
         
         if (error) {
             return <p style={{ color: 'red' }}>Erreur : {error}</p>;
         }
+        if (!artisansData) {
+            return <p>Désolé, l'artisan demandé n'a pas été trouvé.</p>;
+        }
+
     return (
         <main>
             <MetaInfo
@@ -64,7 +69,7 @@ const Artisan = () => {
             <Container>
                 <Row className='d-flex flex-column justify-content-center text-center border border-2 border-danger'>
                     
-                    <h3>{artisans?.nom_entreprise}</h3>
+                    <h3>{artisansData?.nom_entreprise}</h3>
                 </Row>
                 <Row className='border border-2 border-danger m-5'>
                     <Col className='sm-12 md-6 d-flex flex-row align-items-center'>
@@ -73,15 +78,15 @@ const Artisan = () => {
                     </Col>
                     
                     <Col className='sm-12 md-6 d-flex flex-column justify-content-center'>
-                        <RatingStars note={artisans?.note} /> / {artisans?.note}
-                        <p>{artisans?.Specialite?.nom_specialite}</p>
-                        <p>{artisans?.ville}</p>
-                        <p><Link to={artisans?.site_web}>{artisans?.site_web}</Link></p>
+                        <RatingStars note={artisansData?.note} /> / {artisansData?.note}
+                        <p>{artisansData?.Specialite?.nom_specialite}</p>
+                        <p>{artisansData?.ville}</p>
+                        <p><Link to={artisansData?.site_web}>{artisansData?.site_web}</Link></p>
                     </Col>
                 </Row>
 
                 <Row className='text-center border border-2 border-danger '>
-                    <p>{artisans?.a_propos}</p>
+                    <p>{artisansData?.a_propos}</p>
                 </Row>
 
                 <Row className='border border-2 border-danger '>
