@@ -187,6 +187,21 @@ exports.artisanParNom = async (req,res) => {
     
 };
 
+exports.artisansSimpleIndex = async (req,res) => {
+    try {
+        const entreprises = await models.Artisans.findAll({
+            attributes: ['id_artisan', 'nom_entreprise']
+        });
+        return res.status(200).json({entreprise: entreprises});
+    } catch (error) {
+        return res.status(500).json({ 
+            message: 'ERROR',
+            error: 'Erreur interne du serveur lors de la récupération de l\'index des artisans.',
+            detail: error.message
+        });
+    }
+};
+
 exports.connexion = async (req,res) => {
     //* Récupération à la connection 
     //* des catégories pour le menu
@@ -213,8 +228,8 @@ exports.connexion = async (req,res) => {
             attributes: ['nom_categorie']
         });
         //* Nom des entreprises
-        const nomDesEntreprises = await models.Artisans.findAll({
-            attributes: ['nom_entreprise']
+        const entreprises = await models.Artisans.findAll({
+            attributes: ['id_artisan', 'nom_entreprise']
         });
         //* Artisans du mois
         const artisansDuMois = await models.Artisans.findAll({
@@ -238,7 +253,7 @@ exports.connexion = async (req,res) => {
                 API: "Trouve Ton Artisan",
                 categories: categories,
                 artisansDuMois: artisansDuMois,
-                nomDesEntreprises: nomDesEntreprises
+                entreprises: entreprises
             })
     } catch (error) {
         return res.status(500).json({erreur: `erreur interne lors de la récupération des des objet de base => ${error}`})
