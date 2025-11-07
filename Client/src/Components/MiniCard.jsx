@@ -12,7 +12,7 @@ const MiniCard = (props) => {
                 <Card.Body>
                     <Card.Title> {props.nom} </Card.Title>
                     <Card.Subtitle> Note : <RatingStars note={props.note} /> </Card.Subtitle>
-                    <Card.Text> {props.ville} <br /> {props.specialite}</Card.Text>
+                    <Card.Text> {props.specialite} <br /> {props.ville} </Card.Text>
                 </Card.Body>
             </Card>
         </Link>
