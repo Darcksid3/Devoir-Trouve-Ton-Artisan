@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ky from 'ky';
-import { Container, Offcanvas, Nav, Form, Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Search, List } from 'react-bootstrap-icons'; 
+import { Link } from 'react-router-dom';
+import { Container, Offcanvas, Nav, Button } from 'react-bootstrap';
+import { List } from 'react-bootstrap-icons' 
+import SearchComponent from './SearchComponent';
+
 
 const fetchCategories = async () => {
     try {
@@ -63,18 +65,17 @@ const MaNavbar = () => {
 
                         {/* Liens Principaux */}
                         {categories && categories.map((categorie, index) => (
-                            <LinkContainer key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose} >
-                                <Nav.Link>
+                            
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose}>
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
-                            </LinkContainer>
                         ))}
                         <hr />
                         {/* Liens Techniques */}
                         {technicalLinks.map(link => (
-                            <LinkContainer to={link.path} key={link.path} onClick={handleClose}>
-                                <Nav.Link>{link.label}</Nav.Link>
-                            </LinkContainer>
+                            
+                                <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
+                            
                         ))}
                     </Nav>
                 </Offcanvas.Body>
@@ -106,28 +107,20 @@ const MaNavbar = () => {
                     </div>
                     
                     {/* C. LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
-                    <Nav className="d-none d-md-flex mx-auto order-md-2 no-wrap" >
+                    <Nav className="d-none d-md-flex mx-auto order-md-2 " >
                         {categories && categories.map((categorie, index) => (
-                            <LinkContainer key={index} to={`/Categories/${categorie?.nom_categorie}`}>
-                                <Nav.Link>
+                            
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='mx0 px-5 px-lg-3 px-md-2 px-sm-1 text-nowrap'>
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
-                            </LinkContainer>
+                            
                         ))} 
                     </Nav>
                     
                     {/* D. BARRE DE RECHERCHE (Ordre 3) */}
-                    <Form className="d-flex order-3 ms-auto ms-md-0">
-                        <Form.Control
-                            type="search"
-                            placeholder="Rechercher..."
-                            aria-label="Rechercher"
-                            className="rounded-0 border-top-0 border-start-0 border-end-0 border-secondary border-3 me-2" 
-                        />
-                        <Button variant="outline-secondary" className="rounded-0 border-top-0 border-start-0 border-end-0 border-3">
-                            <Search />
-                        </Button>
-                    </Form>
+                    <div className="order-2 me-3">
+                    <SearchComponent />
+                    </div>
 
                 </Container>
             </div>

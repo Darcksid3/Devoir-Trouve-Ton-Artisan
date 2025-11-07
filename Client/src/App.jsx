@@ -4,13 +4,14 @@ import MainLayout from './Layout/MainLayout';
 import Home from './Pages/Home'; 
 import Categories from './Pages/Categories';
 import Artisan from './Pages/Artisan';
-import Accessibilite from './Pages/PagesTechnique/Accessibilite';
-import PolitiqueConfidentialite from './Pages/PagesTechnique/Politique-confidentialite';
-import PolitiqueCookies from './Pages/PagesTechnique/politique-cookies';    
-import MentionsLegales from './Pages/PagesTechnique/Mentions-legales';
+import Accessibilite from './Pages/Private/Accessibilite';
+import PolitiqueConfidentialite from './Pages/Private/Politique-confidentialite';
+import PolitiqueCookies from './Pages/Private/politique-cookies';    
+import MentionsLegales from './Pages/Private/Mentions-legales';
 import NotFoundPage from './Pages/NotFoundPage'; 
 
 function App() {
+    
     return (
         
             <Routes>
