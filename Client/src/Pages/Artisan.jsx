@@ -78,7 +78,7 @@ const Artisan = () => {
                     </Col>
                     
                     <Col className='sm-12 md-6 d-flex flex-column justify-content-center'>
-                        <RatingStars note={artisansData?.note} /> / {artisansData?.note}
+                        <RatingStars note={artisansData?.note} />
                         <p>{artisansData?.Specialite?.nom_specialite}</p>
                         <p>{artisansData?.ville}</p>
                         <p><Link to={artisansData?.site_web}>{artisansData?.site_web}</Link></p>

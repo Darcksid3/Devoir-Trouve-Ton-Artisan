@@ -15,7 +15,7 @@ const corsOption = {
 const C = require('./script/debug');
 //* Routes
 const bddRouter = require('./routes/bdd');
-const testRouter = require('./routes/test');
+//const testRouter = require('./routes/test');
 
 const app = express()
 app.use(cors(corsOption));
@@ -32,7 +32,7 @@ const startServer = async () => {
         
         //* Étape 2 : Configuration et écoute du serveur Express
 		app.use('/', bddRouter);
-		app.use('/test', testRouter);
+		//app.use('/test', testRouter);
         
         app.listen(PORT, () => {
             C.log('cyan', `🌐 Server running on port ${PORT}`);
