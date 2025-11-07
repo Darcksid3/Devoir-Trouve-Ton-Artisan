@@ -18,14 +18,16 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     - ✅ Desktop et Tablette (Paysage)
 2. Création de la base de donnée mariadb.
     - ✅ Céation et alimentation de la base de donée par fichier Sql\
-    - ✅ AnnuaireArtisans
+    - ✅ AnnuaireArtisans.
 3. Mise en place de la partie backend.
-    - ✅ Lise en place de la connection a la base de donnée et des schémas.
-    - ✅ Mise en place des routes
-    - ✅ Mise en place des services
+    - ✅ Mise en place de la connection a la base de donnée et des schémas..
+    - ✅ Mise en place des routes.
+    - ✅ Mise en place des services.
 4. Mise en place de la partie frontend.
-    :x: Mise en place d'une partie client avec navigation\
-     Basique et importation des librairies nésséssaire.
+    - ✅ Mise en place du systeme de routeage.
+    - ✅ Mise en place de toutes les pages.
+    - ✅ Recherche d'un artisan par son nom.
+    - :X: Mise en place du style définitif du site.
 5. rédaction du projet complet sous format PDF.
     :x: Non débuté.
 
