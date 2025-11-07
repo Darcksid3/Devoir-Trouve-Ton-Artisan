@@ -10,6 +10,9 @@ import PolitiqueCookies from './Pages/Private/politique-cookies';
 import MentionsLegales from './Pages/Private/Mentions-legales';
 import NotFoundPage from './Pages/NotFoundPage'; 
 
+//* page de test
+import PageTest from './Pages/PageTest';
+
 function App() {
     
     return (
@@ -28,9 +31,10 @@ function App() {
                     <Route path="/Politique-confidentialite"element={<PolitiqueConfidentialite />} />
                     <Route path="/Accessibilité"element={<Accessibilite />} />
                     <Route path="/Politique-cookies"element={<PolitiqueCookies />} /> 
-
+                    {/* route de test */}
+                    <Route path="/test" element={<PageTest />} />
                     {/* Route 404 (doit être en dernier) */}
-                    { <Route path="*" element={<NotFoundPage />} /> }
+                    <Route path="*" element={<NotFoundPage />} /> 
                 </Route>
             </Routes>
         

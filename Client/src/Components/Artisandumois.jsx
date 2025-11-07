@@ -6,9 +6,7 @@ import MiniCard from "./MiniCard";
 
 const fetchArtisan = async () => {
     try{
-        const http = process.env.REACT_APP_URL_API_WIN;
-const port = process.env.REACT_APP_PORT_API;
-const url = `${http}:${port}`;
+        const url = process.env.REACT_APP_URL_API;
         const responce = await ky(`${url}/artisansdumois`).json();
         return responce.artisans;
 

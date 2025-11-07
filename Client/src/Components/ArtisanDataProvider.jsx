@@ -12,9 +12,7 @@ const [loading, setLoading] = useState(true);
 useEffect(() => {
     const fetchAndBuildIndex = async () => {
     try {
-        const http = process.env.REACT_APP_URL_API_WIN;
-        const port = process.env.REACT_APP_PORT_API;
-        const url = `${http}:${port}`;
+        const url = process.env.REACT_APP_URL_API;
         // 🛑 Assurez-vous d'avoir un endpoint API qui renvoie une liste simple: [{id, nom}]
         const response = await ky(`${url}/artisansimpleindex`); 
         const data = await response.json();

@@ -8,9 +8,8 @@ import MetaInfo from '../Components/Helmet';
 
 const fetchArtisansByCategorie = async (categorieNom) => {
 
-    try {const http = process.env.REACT_APP_URL_API_WIN;
-        const port = process.env.REACT_APP_PORT_API;
-        const url = `${http}:${port}`;
+    try {
+        const url = process.env.REACT_APP_URL_API;
         const response = await ky(`${url}/artisansparcategories/${categorieNom}`).json();
 
         return response.artisans || response; 

@@ -11,9 +11,7 @@ const fetchArtisans = async (idArtisan) => {
 
     
     try {
-        const http = process.env.REACT_APP_URL_API_WIN;
-        const port = process.env.REACT_APP_PORT_API;
-        const url = `${http}:${port}`;
+        const url = process.env.REACT_APP_URL_API;
         const responce = await ky(`${url}/artisanparid/${idArtisan}`).json();
         return responce.artisans || responce;
     }catch (error) {

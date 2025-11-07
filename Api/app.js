@@ -6,9 +6,27 @@ const cors = require('cors');
 const sequelize = require('./dbConnect/dbConnect');
 
 //! authorisation de connection pour la partie front end seulement
-const corsOption = {
-    origin : process.env.ACCESS_ONLY
-}
+// 1. Récupérer la variable d'environnement (avec une valeur de secours)
+const allowedOriginsStr = process.env.ALLOWED_ORIGINS || 'http://localhost'; 
+
+// 2. Transformer la chaîne en tableau, en nettoyant les espaces
+const allowedOrigins = allowedOriginsStr.split(',').map(url => url.trim()); 
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permettre les requêtes sans 'origin' (ex: Postman ou requêtes du même serveur)
+    if (!origin) return callback(null, true); 
+
+    // Vérifier si l'origine fait partie de la liste autorisée
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true); // Autorisé
+    } else {
+      callback(new Error('Not allowed by CORS'), false); // Refusé
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Spécifiez les méthodes HTTP autorisées
+  credentials: true, // Si vous utilisez des cookies ou headers d'authentification
+};
 
 
 //* Débug
@@ -18,7 +36,7 @@ const bddRouter = require('./routes/bdd');
 //const testRouter = require('./routes/test');
 
 const app = express()
-app.use(cors(corsOption));
+app.use(cors(corsOptions));
 
 
 const models = require('./dbConnect/modelRelations');

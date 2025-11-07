@@ -8,9 +8,7 @@ import SearchComponent from './SearchComponent';
 
 const fetchCategories = async () => {
     try {
-        const http = process.env.REACT_APP_URL_API_WIN;
-        const port = process.env.REACT_APP_PORT_API;
-        const url = `${http}:${port}`;
+        const url = process.env.REACT_APP_URL_API;
         const responce = await ky(`${url}/touteslescategories`).json();
         
         return responce.categories
