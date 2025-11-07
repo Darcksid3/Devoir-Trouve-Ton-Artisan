@@ -16,9 +16,14 @@ function Formulaire() {
     if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
+    } else {
+        event.preventDefault();
+        alert('Formulaire envoyé avec succès !');
+        setComment('');
     }
-
-    setValidated(true);
+    setValidated(true)
+    
+    
     };
 
     return (
