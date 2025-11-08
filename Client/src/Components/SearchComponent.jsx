@@ -19,29 +19,20 @@ const SearchComponent = () => {
             setSuggestions([]);
             return;
         }
-
         const normalizedTerm = term.toLowerCase().trim();
         const foundSuggestions = [];
-
-        
         for (const name of Object.keys(artisanIndex)) {
-            
-            
             if (name.includes(normalizedTerm)) { 
-                
-                
                 foundSuggestions.push({
                     id: artisanIndex[name],
                     name: name
                 });
-
                 // Limiter le nombre a x suggestions
                 if (foundSuggestions.length >= 5) {
                     break; 
                 }
             }
         }
-        
         setSuggestions(foundSuggestions);
     };
 
@@ -53,20 +44,14 @@ const SearchComponent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        
         const normalizedSearch = searchTerm.toLowerCase().trim();
-        
-        
         const artisanId = artisanIndex[normalizedSearch];
 
         if (artisanId) {
-            
             navigate(`/Artisan/${artisanId}`);
         } else {
-            
             navigate(`/`);
         }
-        
         setSearchTerm(''); 
     };
     

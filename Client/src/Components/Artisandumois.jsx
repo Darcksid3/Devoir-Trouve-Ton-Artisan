@@ -1,35 +1,17 @@
-import React, {useEffect, useState} from "react";
-import ky from 'ky';
-
+import React from "react";
+import { useRecupDb } from "../Components/FetchDb";
 import MiniCard from "./MiniCard";
 
-
-const fetchArtisan = async () => {
-    try{
-        const url = process.env.REACT_APP_URL_API;
-        const responce = await ky(`${url}/artisansdumois`).json();
-        return responce.artisans;
-
-    } catch(error) {
-        console.log(`Erreur ky lors de la récupération des artisans ${error}`);
-        throw new Error ('Echec du chargement des donées');
-    }
-};
-
 function ArtisanDuMois() {
-    const [artisans, setArtisans] = useState([]);
-    const [isLoading, setIsLoading] = useState(null);
-    const [error, setError] = useState(null);
     
-    useEffect(() => {
-        fetchArtisan()
-        .then(data => {
-            setArtisans(data);
-            setIsLoading(false);
-        });
-    }, []);
-
+    const { data, isLoading, error } = useRecupDb('/artisansdumois');
+    const artisans = data?.artisans || [];
     if (isLoading) {
+        return <div>Chargement...</div>;
+    }
+
+    if (error) {
+        // Le composant utilisateur gère le rendu JSX pour l'erreur
         return <p style={{color: 'red'}}>Erreur : {error}</p>;
     }
 

@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import ky from 'ky';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Offcanvas, Nav, Button } from 'react-bootstrap';
 import { List } from 'react-bootstrap-icons' 
 import SearchComponent from './SearchComponent';
-
-
-const fetchCategories = async () => {
-    try {
-        const url = process.env.REACT_APP_URL_API;
-        const responce = await ky(`${url}/touteslescategories`).json();
-        
-        return responce.categories
-    } catch (error) {
-        console.log(`Erreur lors de la récupération des artisans ${error}`);
-        throw new Error ('Echec du chargement des donées');
-    }
-};
+import { useRecupDb } from '../Components/FetchDb';
 
 const technicalLinks = [
     { path: '/Mentions-legales', label: 'Mentions Légales' },
@@ -26,28 +13,26 @@ const technicalLinks = [
 ];
 
 const MaNavbar = () => {
-    // Liens de navigation
-        const [categories, setCategories] = useState([]);
-        const [isLoading, setIsLoading] = useState(null);
-        const [error, setError] = useState(null);
-    
-        const cat = ['Batiment', 'Alimentation', 'Fabrication', 'services']
-    
-        useEffect(() => {
-            fetchCategories()
-            .then(data => {
-                setCategories(data)
-                setIsLoading(false)
-            });
-        }, []);
-    
-        if (isLoading) {
-            return <p style={{color: 'red'}}>Erreur : {error}</p>;
-        }
+ 
     // État pour gérer l'ouverture/fermeture de l'Offcanvas
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const handleClose = () => setShowOffcanvas(false);
     const handleShow = () => setShowOffcanvas(true);
+
+    // Liens de navigation
+        const { data, isLoading, error } = useRecupDb('/touteslescategories');
+        const categories = data?.categories || [];
+
+    
+        if (isLoading) {
+            return <div>Chargement...</div>;
+        }
+    
+        if (error) {
+            // Le composant utilisateur gère le rendu JSX pour l'erreur
+            return <p style={{color: 'red'}}>Erreur : {error}</p>;
+        }
+   
 
     return (
         <>
