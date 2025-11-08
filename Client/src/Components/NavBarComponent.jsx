@@ -108,7 +108,7 @@ const MaNavbar = () => {
                     <Nav className="d-none d-md-flex mx-auto order-md-2 " >
                         {categories && categories.map((categorie, index) => (
                             
-                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='mx0 px-5 px-lg-3 px-md-2 px-sm-1 text-nowrap'>
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='nl mx0 px-5 px-lg-3 px-md-2 px-sm-1 text-nowrap'>
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
                             

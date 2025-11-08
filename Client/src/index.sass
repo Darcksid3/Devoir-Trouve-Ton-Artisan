@@ -1,0 +1,68 @@
+/* IMPORT */
+@font-face 
+    font-family : 'graphik'
+    src: url(../public/font/graphik.otf)
+
+/* VARIABLE */
+$max-width-site: 1280px
+$bg-color-site: #f1f8fc
+$blue-color: #0074c7
+$dark-blue-color: #00497c
+$grey-color: #384050
+$red-color: #cd2c2e 
+$green-color: #82b864
+
+/* GLOBAL STYLES */
+body 
+    font-family : 'graphik', sans-serif
+    margin : 0 auto
+    padding:0 
+    max-width: $max-width-site
+    background-color: $bg-color-site
+
+.ol-home li
+    text-align: left
+    margin-bottom: 15px
+
+.basis 
+    flex-basis: 33%
+
+.d-shadow 
+    box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.2)
+
+.footer-pos 
+    display: contents
+    position: sticky
+    bottom: 0
+    border-top: 2px solid grey
+    box-shadow: 0px -5px 5px 0px grey
+    max-width: 1280px
+    border-bottom: 2px solid red
+
+.div-minicard-size
+    display: contents
+
+/* REACT COMPONENTS */
+.nl
+    font-weight: bold
+    color: $grey-color
+/* Styles pour la superposition des suggestions de recherche */
+.search-suggestions-dropdown 
+    
+    position: absolute
+    top: 100%
+    left: 0
+    
+    /* Styles esthétiques et fonctionnels */
+    z-index: 1050
+    width: 100%
+    max-height: 200px 
+    overflow-y: auto
+    background-color: white 
+    border: 1px solid #ccc
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+
+.search-suggestions-dropdown .list-group-item 
+    cursor: pointer
+
