@@ -1,61 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom'; 
-import ky from 'ky'; 
+
 import { Container, Row, Col } from 'react-bootstrap';
 import Formulaire from '../Components/Formulaire';
 import RatingStars from '../Components/RatingStars';
 import MetaInfo from '../Components/Helmet';
-
-
-const fetchArtisans = async (idArtisan) => {
-
-    
-    try {
-        const url = process.env.REACT_APP_URL_API;
-        const responce = await ky(`${url}/artisanparid/${idArtisan}`).json();
-        return responce.artisans || responce;
-    }catch (error) {
-        console.error(`Erreur lors du chargement de l'artisan pour ${idArtisan}:`, error);
-        throw new Error("Impossible de charger les données de l'artisan.");
-    }
-};
+import { useRecupDb } from '../Components/FetchDb';
 
 const Artisan = () => {
+
     const { idArtisan } = useParams();
-
-    const [artisansData, setArtisansData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-            setIsLoading(true);
-            setError(null);
-            
-            fetchArtisans(idArtisan)
-                .then(data => {
-                    setArtisansData(data);
-                })
-                .catch(err => {
-                    setError(err.message);
-                })
-                .finally(() => {
-                    setIsLoading(false);
-                });
-    
-        }, [idArtisan]); 
-    
-        
+    const { data, isLoading, error } = useRecupDb(`/artisanparid/${idArtisan}`);
+    const artisansData = data?.artisans || [];
         if (isLoading) {
-            return <p>Chargement des artisans ...</p>;
+            return <div>Chargement...</div>;
         }
-        
+    
         if (error) {
-            return <p style={{ color: 'red' }}>Erreur : {error}</p>;
+            // Le composant utilisateur gère le rendu JSX pour l'erreur
+            return <p style={{color: 'red'}}>Erreur : {error}</p>;
         }
-        if (!artisansData) {
-            return <p>Désolé, l'artisan demandé n'a pas été trouvé.</p>;
-        }
-
     return (
         <main>
             <MetaInfo

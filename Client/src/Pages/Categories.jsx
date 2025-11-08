@@ -1,57 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom'; 
-import ky from 'ky'; 
 import { Container, Row, Col } from 'react-bootstrap';
 import MiniCard from '../Components/MiniCard';
 import MetaInfo from '../Components/Helmet';
-
-
-const fetchArtisansByCategorie = async (categorieNom) => {
-
-    try {
-        const url = process.env.REACT_APP_URL_API;
-        const response = await ky(`${url}/artisansparcategories/${categorieNom}`).json();
-
-        return response.artisans || response; 
-    } catch (error) {
-        console.error(`Erreur lors du chargement des artisans pour ${categorieNom}:`, error);
-        throw new Error("Impossible de charger les données de cette catégorie.");
-    }
-};
+import { useRecupDb } from '../Components/FetchDb';
 
 const Categories = () => {
     const { categorie } = useParams(); 
-    
-    const [artisans, setArtisans] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        setIsLoading(true);
-        setError(null);
+            const { data, isLoading, error } = useRecupDb(`/artisansparcategories/${categorie}`);
+            const artisans = data?.artisans || [];
+            if (isLoading) {
+                return <div>Chargement...</div>;
+            }
         
-        fetchArtisansByCategorie(categorie)
-            .then(data => {
-                setArtisans(data);
-            })
-            .catch(err => {
-                setError(err.message);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-
-    }, [categorie]); 
-
-    
-    if (isLoading) {
-        return <p>Chargement des artisans {categorie}...</p>;
-    }
-    
-    if (error) {
-        return <p style={{ color: 'red' }}>Erreur : {error}</p>;
-    }
-
+            if (error) {
+                // Le composant utilisateur gère le rendu JSX pour l'erreur
+                return <p style={{color: 'red'}}>Erreur : {error}</p>;
+            }
     return (
         <main>
             <MetaInfo
