@@ -6,6 +6,18 @@ const cors = require('cors');
 const sequelize = require('./dbConnect/dbConnect');
 
 //! authorisation de connection pour la partie front end seulement
+/* Pour la production finale avec une seule origine
+const allowedOrigins = process.env.ORIGIN; 
+const corsOptions = {
+  // Le serveur n'autorisera que cette origine pour les requêtes de navigateur
+  origin: allowedOrigins, 
+  methods: 'GET', 
+  optionsSuccessStatus: 200 
+};
+*/
+
+//! Pour la partie dev local avec plusieurs origines possibles a supprimer pour la production finale
+
 // 1. Récupérer la variable d'environnement (avec une valeur de secours)
 const allowedOriginsStr = process.env.ALLOWED_ORIGINS || 'http://localhost'; 
 
@@ -24,16 +36,15 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'), false); // Refusé
     }
   },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Spécifiez les méthodes HTTP autorisées
+  methods: 'GET', // Spécifiez les méthodes HTTP autorisées
   credentials: true, // Si vous utilisez des cookies ou headers d'authentification
 };
 
 
-//* Débug
-const C = require('./script/debug');
+
 //* Routes
-const bddRouter = require('./routes/bdd');
-//const testRouter = require('./routes/test');
+const artisanRouter = require('./routes/artisans');
+
 
 const app = express()
 app.use(cors(corsOptions));
@@ -46,20 +57,19 @@ const startServer = async () => {
     try {
         //* Étape 1 : Vérification de la connexion à la base de données
         await sequelize.authenticate();
-        C.log('green', '✅ Connection has been established successfully.');
+        console.log('✅ Connection has been established successfully.');
         
         //* Étape 2 : Configuration et écoute du serveur Express
-		app.use('/', bddRouter);
-		//app.use('/test', testRouter);
+
+        app.use('/', artisanRouter);
         
         app.listen(PORT, () => {
-            C.log('cyan', `🌐 Server running on port ${PORT}`);
-            // console.log(`Server is running at http://localhost:${port}`);
+            console.log(`🌐 Server running on port ${PORT}`);
         });
 
     } catch (error) {
         // Étape 3 : Gestion des Erreurs (si la connexion ou le démarrage échoue)
-        C.log('red', `❌ Unable to connect to the database or start server => ${error}`);
+        console.log(`❌ Unable to connect to the database or start server => ${error}`);
         
         // Arrêter le processus car l'application ne peut pas fonctionner sans DB
         process.exit(1); 

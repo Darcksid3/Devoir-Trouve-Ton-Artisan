@@ -2,20 +2,20 @@ import React, { useState, useContext } from 'react';
 import { Form, Button, Row, Col} from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons'; 
 import { useNavigate } from 'react-router-dom';
-import { ArtisanContext } from '../Contex/ArtisanContex'; // 🛑 IMPORTER LE CONTEXTE
+import { ArtisanContext } from '../Contex/ArtisanContex';
 
 
 
 const SearchComponent = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
-    const artisanIndex = useContext(ArtisanContext); // 🛑 CONSOMMER L'INDEX
+    const artisanIndex = useContext(ArtisanContext); 
     const navigate = useNavigate();
 
-    console.log(artisanIndex); // 🛑 VÉRIFIER L'INDEX
+    console.log(artisanIndex); 
 
     const searchIndex = (term) => {
-        if (term.length < 1) { // Déclencher la recherche à partir de 3 caractères
+        if (term.length < 1) { // Déclencheur de la recherche à partir de x caractères 
             setSuggestions([]);
             return;
         }
@@ -23,19 +23,19 @@ const SearchComponent = () => {
         const normalizedTerm = term.toLowerCase().trim();
         const foundSuggestions = [];
 
-        // 🛑 CLÉ : Itérer sur les clés de l'objet (les noms d'entreprises)
+        
         for (const name of Object.keys(artisanIndex)) {
             
-            // 🛑 UTILISER .includes() au lieu de .startsWith()
+            
             if (name.includes(normalizedTerm)) { 
                 
-                // Ajouter à la liste des suggestions : { name: "nom", id: 123 }
+                
                 foundSuggestions.push({
                     id: artisanIndex[name],
                     name: name
                 });
 
-                // Optionnel: Limiter le nombre de suggestions
+                // Limiter le nombre a x suggestions
                 if (foundSuggestions.length >= 5) {
                     break; 
                 }
@@ -48,7 +48,7 @@ const SearchComponent = () => {
     const handleChange = (event) => {
         const value = event.target.value;
         setSearchTerm(value);
-        searchIndex(value); // Déclencher la recherche en temps réel
+        searchIndex(value); // recherche en temps réel
     };
 
     const handleSubmit = (event) => {
@@ -56,24 +56,23 @@ const SearchComponent = () => {
         
         const normalizedSearch = searchTerm.toLowerCase().trim();
         
-        // 1. Recherche de correspondance exacte dans le cache
+        
         const artisanId = artisanIndex[normalizedSearch];
 
         if (artisanId) {
-            // Correspondance trouvée : Redirection directe
+            
             navigate(`/Artisan/${artisanId}`);
         } else {
-            // Aucune correspondance exacte : Lancer la recherche API complète
-            // Vous pouvez rediriger vers une page de résultats avec le terme de recherche
+            
             navigate(`/`);
         }
-        // Vider le champ après la recherche
+        
         setSearchTerm(''); 
     };
-    //TODO 
+    
     
     return (
-        <div style={{ position: 'relative'}}> {/* 🛑 1. NOUVEAU CONTENEUR RELATIF */}
+        <div style={{ position: 'relative'}}> 
                 <Form className="d-flex order-3 ms-auto ms-md-0" onSubmit={handleSubmit}> 
                     
                         <Form.Control
@@ -98,8 +97,8 @@ const SearchComponent = () => {
                                     className="list-group-item list-group-item-action"
                                     onClick={() => {
                                         navigate(`/Artisan/${item.id}`);
-                                        setSuggestions([]); // Cacher les suggestions après la sélection
-                                        setSearchTerm(item.name); // Mettre le nom complet dans le champ
+                                        setSuggestions([]); 
+                                        setSearchTerm(item.name); 
                                     }}
                                 >
                                     {item.name}

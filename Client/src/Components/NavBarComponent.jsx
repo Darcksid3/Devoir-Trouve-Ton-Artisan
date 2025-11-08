@@ -80,12 +80,12 @@ const MaNavbar = () => {
             </Offcanvas>
 
             {/* ========================================================= */}
-            {/* 2. BARRE DE NAVIGATION PRINCIPALE (Basée sur Flexbox)     */}
+            {/* 2. BARRE DE NAVIGATION PRINCIPALE                         */}
             {/* ========================================================= */}
             <div className="d-shadow mb-5 border-bottom border-secondary border-3 ">
                 <Container fluid className="py-2 d-flex align-items-end"> 
                     
-                    {/* A. BURGER (Visible en Mobile - Ordre 1) */}
+                    {/* BURGER (Visible en Mobile - Ordre 1) */}
                     <Button 
                         variant="outline-secondary" 
                         onClick={handleShow} 
@@ -94,7 +94,7 @@ const MaNavbar = () => {
                         <List size={24} />
                     </Button>
                     
-                    {/* B. LOGO/BRAND */}
+                    {/* LOGO/BRAND */}
                     <div 
                         className="basis text-center order-2 order-md-1 d-flex"
                         style={{ flexGrow: window.innerWidth < 768 ? 1 : 0 }} 
@@ -104,7 +104,7 @@ const MaNavbar = () => {
                         </a>
                     </div>
                     
-                    {/* C. LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
+                    {/* LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
                     <Nav className="d-none d-md-flex mx-auto order-md-2 " >
                         {categories && categories.map((categorie, index) => (
                             
@@ -115,7 +115,7 @@ const MaNavbar = () => {
                         ))} 
                     </Nav>
                     
-                    {/* D. BARRE DE RECHERCHE (Ordre 3) */}
+                    {/* BARRE DE RECHERCHE (Ordre 3) */}
                     <div className="order-2 me-3">
                     <SearchComponent />
                     </div>

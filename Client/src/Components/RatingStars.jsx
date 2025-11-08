@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Le style de base des étoiles pour le dégradé de couleur
-const STAR_COLOR = "#ffc107"; // Couleur jaune (warning de Bootstrap)
-const EMPTY_COLOR = "#e4e5e9"; // Couleur grise
+const STAR_COLOR = "#ffc107"; 
+const EMPTY_COLOR = "#e4e5e9"; 
 
 const RatingStars = ({ note }) => {
     // Le nombre total d'étoiles

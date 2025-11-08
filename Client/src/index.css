@@ -41,25 +41,21 @@ body {
 
 /* Styles pour la superposition des suggestions de recherche */
 .search-suggestions-dropdown {
-    /* 🛑 CLÉS DE LA SUPERPOSITION */
+    
     position: absolute; 
-    top: 100%; /* Place la div juste sous le champ de saisie */
+    top: 100%; 
     left: 0; 
     
     /* Styles esthétiques et fonctionnels */
-    z-index: 1050; /* Doit être supérieur à tout le contenu qui pourrait le chevaucher (e.g., z-index des Navbars est souvent 1030) */
-    width: 100%; /* Étend la div sur toute la largeur du Formulaire */
-    max-height: 200px; /* Limite la hauteur et ajoute une barre de défilement si nécessaire */
+    z-index: 1050; 
+    width: 100%; 
+    max-height: 200px; 
     overflow-y: auto;
-    background-color: white; /* Assurez-vous qu'elle est opaque */
+    background-color: white; 
     border: 1px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-suggestions-dropdown .list-group-item {
     cursor: pointer;
-    /* Ajoutez des styles Bootstrap pour les rendre cliquables */
 }
-
-/* Assurez-vous que le conteneur du formulaire est le point de référence */
-/* Si vous avez utilisé un conteneur div wrapper comme suggéré, cela est déjà fait avec style={{ position: 'relative' }} */

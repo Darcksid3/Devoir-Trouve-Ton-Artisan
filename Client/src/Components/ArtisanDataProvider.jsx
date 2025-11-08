@@ -1,6 +1,4 @@
-// src/components/ArtisanDataProvider.jsx
 import React, { useEffect, useState, useContext } from 'react';
-// import { ky } from 'ky'; // Si vous utilisez ky, sinon fetch
 import { ArtisanContext } from '../Contex/ArtisanContex';
 import ky from 'ky'; 
 
@@ -13,14 +11,12 @@ useEffect(() => {
     const fetchAndBuildIndex = async () => {
     try {
         const url = process.env.REACT_APP_URL_API;
-        // 🛑 Assurez-vous d'avoir un endpoint API qui renvoie une liste simple: [{id, nom}]
         const response = await ky(`${url}/artisansimpleindex`); 
         const data = await response.json();
-        //console.log(`fetchAndBuildIndex data: ${JSON.stringify(data)}`);
 
         const artisanList = data.entreprise; 
 
-        // S'assurer que 'artisanList' est bien un tableau (et non undefined ou autre)
+        // S'assurer que 'artisanList' est bien un tableau
         if (!Array.isArray(artisanList)) {
             console.error("La réponse API ne contenait pas le tableau 'entreprise'.");
             setLoading(false);
@@ -44,17 +40,15 @@ useEffect(() => {
     };
 
     fetchAndBuildIndex();
-}, []); // [] : se lance une seule fois au montage
+}, []); 
 
 if (loading) {
-    // Optionnel: Afficher un loader si la barre de navigation dépend de ces données
-    // Pour une Navbar, on pourrait retourner null ou un loader très rapide.
     return <div>Chargement de l'index...</div>; 
 }
 
 return (
     <ArtisanContext.Provider value={artisanIndex}>
-    {children}
+        {children}
     </ArtisanContext.Provider>
 );
 }

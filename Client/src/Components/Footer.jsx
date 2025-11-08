@@ -18,6 +18,7 @@ const Footer = () => {
                         <Nav.Link as={Link} to="/Politique-confidentialite">Politique de Confidentialité</Nav.Link>
                         <Nav.Link as={Link} to="/Accessibilité">Accessibilité</Nav.Link>
                         <Nav.Link as={Link} to="/Politique-cookies">Politique de Cookies</Nav.Link> 
+                        <Nav.Link as={Link} to="/test">test</Nav.Link>
                     </Nav>
                     </Col>
                     <Col md={6} className='mx-auto text-center'>

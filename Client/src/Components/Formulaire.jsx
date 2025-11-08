@@ -20,14 +20,14 @@ function Formulaire() {
         setFormData(prevData => ({
             ...prevData,
             // id sera utilisé pour déterminer quelle propriété mettre à jour
-            // Assurez-vous que l'ID du contrôle de formulaire correspond à la clé de l'objet d'état
+            // ID du contrôle de formulaire correspond à la clé de l'objet d'état
             [id.replace('validationCustom', '').toLowerCase()]: value, 
         }));
     };
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
-        event.preventDefault(); // On appelle preventDefault ici pour ne pas avoir à le répéter
+        event.preventDefault();
 
         if (form.checkValidity() === false) {
             event.stopPropagation();
@@ -58,7 +58,7 @@ function Formulaire() {
                         required
                         type="text"
                         placeholder="Votre nom"
-                        value={formData.nom} // Liaison de la valeur
+                        value={formData.nom} 
                         pattern="^[\p{L}\s']{2,50}$"
                         onChange={handleChange}
                     />
@@ -75,7 +75,7 @@ function Formulaire() {
                         required
                         type="Email"
                         placeholder="Votre adresse email"
-                        value={formData.email} // Liaison de la valeur
+                        value={formData.email}
                         pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                         onChange={handleChange}
                     />
@@ -89,7 +89,7 @@ function Formulaire() {
                         required
                         type="text"
                         placeholder="Sujet"
-                        value={formData.sujet} // Liaison de la valeur
+                        value={formData.sujet} 
                         onChange={handleChange}
                     />
                     <Form.Control.Feedback>Bien rempli!</Form.Control.Feedback>
@@ -104,7 +104,7 @@ function Formulaire() {
                         as="textarea" 
                         rows={12} 
                         placeholder="Votre message"
-                        value={formData.message} // Liaison de la valeur
+                        value={formData.message} 
                         onChange={handleChange} 
                     />
                     <Form.Control.Feedback>Bien rempli!</Form.Control.Feedback>
