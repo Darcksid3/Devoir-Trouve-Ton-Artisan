@@ -68,7 +68,7 @@ const SearchComponent = () => {
                             value={searchTerm}
                             onChange={handleChange}
                         />
-                        <Button variant="outline-secondary" className="rounded-0 border-top-0 border-start-0 border-end-0 border-3">
+                        <Button aria-label="Bouton de recherche" variant="outline-secondary" className="rounded-0 border-top-0 border-start-0 border-end-0 border-3">
                             <Search />
                         </Button>
                     </Form>

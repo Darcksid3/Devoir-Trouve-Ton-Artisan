@@ -9,8 +9,8 @@ const Home = () => {
                 title="Trouve ton artisan"
                 content="Page d'accueil pour trouver un artisan facilement ainsi que la liste des artisans du mois"
                 robots="index, follow"
-                
             />
+            
             <Container className="d-flex flex-row flex-wrap mx-auto" fluid>
                 <Row className="text-center p-2">
                     <h2>Comment trouver mon artisan ?</h2>

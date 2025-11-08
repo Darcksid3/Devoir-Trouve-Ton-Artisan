@@ -32,7 +32,7 @@ const MaNavbar = () => {
             // Le composant utilisateur gère le rendu JSX pour l'erreur
             return <p style={{color: 'red'}}>Erreur : {error}</p>;
         }
-   
+
 
     return (
         <>
@@ -75,6 +75,7 @@ const MaNavbar = () => {
                         variant="outline-secondary" 
                         onClick={handleShow} 
                         className="d-md-none order-1 me-2" // Affiché uniquement en mobile
+                        aria-label="Bouton du menu"
                     >
                         <List size={24} />
                     </Button>
