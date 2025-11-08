@@ -7,7 +7,6 @@ const AddressGoogle = () => {
 
 const Footer = () => {
     
-    
     return (
         <footer className="mt-0 py-2 bg-light container-fluid">
             <Container className='border border-2 border-secondary shadow-top'>

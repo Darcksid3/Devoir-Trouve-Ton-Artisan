@@ -4,8 +4,8 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import './index.sass'
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { ArtisanDataProvider } from './Components/ArtisanDataProvider'; 
-const basenamePath = process.env.REACT_APP_ROUTER_BASE || '/'; 
+import { ArtisanDataProvider } from './Components/ArtisanDataProvider.jsx'; 
+const basenamePath = import.meta.REACT_APP_ROUTER_BASE || '/'; 
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
