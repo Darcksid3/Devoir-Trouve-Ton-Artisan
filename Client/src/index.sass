@@ -1,6 +1,6 @@
 /* IMPORT */
 @font-face 
-    font-family : 'graphik'
+    font-family: 'graphik'
     src: url(/font/graphik.otf)
 
 /* VARIABLE */
@@ -14,8 +14,8 @@ $green-color: #82b864
 
 /* GLOBAL STYLES */
 body 
-    font-family : 'graphik', sans-serif
-    margin : 0 auto
+    font-family: 'graphik', sans-serif
+    margin: 0
     padding:0 
     max-width: $max-width-site
     background-color: $bg-color-site
@@ -44,14 +44,32 @@ h2 h3 h4
     max-width: 1280px
     border-bottom: 2px solid red
 
+footer 
+    margin: 0px
+    padding: 0px
+    position: fixed
+    bottom: 0px
+    background-color: $blue-color
+    color: $bg-color-site
+    .f-link
+        color: $bg-color-site
+    .f-link:hover
+        color: $grey-color
+        text-decoration: underline
+        font-weight: 900
+
+
+/* REACT COMPONENTS */
 .div-minicard-size
     display: contents
 
-/* REACT COMPONENTS */
-.nl
+.navbar-link
     font-weight: bold
     color: $grey-color
-/* Styles pour la superposition des suggestions de recherche */
+.navbar-link:active
+    text-decoration: underline
+
+/* DEBUT Styles pour la superposition des suggestions de recherche */
 .search-suggestions-dropdown 
     
     position: absolute
@@ -70,4 +88,4 @@ h2 h3 h4
 
 .search-suggestions-dropdown .list-group-item 
     cursor: pointer
-
+/* FIN Styles pour la superposition des suggestions de recherche */

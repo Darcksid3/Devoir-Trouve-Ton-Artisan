@@ -13,7 +13,7 @@ const technicalLinks = [
 ];
 
 const MaNavbar = () => {
- 
+
     // État pour gérer l'ouverture/fermeture de l'Offcanvas
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const handleClose = () => setShowOffcanvas(false);
@@ -45,20 +45,16 @@ const MaNavbar = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav className="flex-column">
-
                         {/* Liens Principaux */}
                         {categories && categories.map((categorie, index) => (
-                            
-                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose}>
-                                    {categorie?.nom_categorie}
-                                </Nav.Link>
+                            <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose}>
+                                {categorie?.nom_categorie}
+                            </Nav.Link>
                         ))}
                         <hr />
                         {/* Liens Techniques */}
                         {technicalLinks.map(link => (
-                            
-                                <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
-                            
+                            <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
                         ))}
                     </Nav>
                 </Offcanvas.Body>
@@ -91,12 +87,12 @@ const MaNavbar = () => {
                     </div>
                     
                     {/* LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
-                    <Nav className="d-none d-md-flex mx-auto order-md-2 " >
+                    <Nav className="d-none d-md-flex mx-auto order-md-2 text-nowrap" >
                         {categories && categories.map((categorie, index) => (
                             
-                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='nl mx0 px-5 px-lg-3 px-md-2 px-sm-1 text-nowrap'>
-                                    {categorie?.nom_categorie}
-                                </Nav.Link>
+                            <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='navbar-link mx0 px-5 px-lg-3 px-md-2 px-sm-1'>
+                                {categorie?.nom_categorie}
+                            </Nav.Link>
                             
                         ))} 
                     </Nav>
