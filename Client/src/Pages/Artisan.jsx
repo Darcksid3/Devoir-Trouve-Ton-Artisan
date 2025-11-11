@@ -30,8 +30,9 @@ const Artisan = () => {
             />
             <Container>
 
-                <Row className='d-flex flex-column justify-content-center text-center'>
-                    <h3>{artisansData?.nom_entreprise}</h3>
+                <Row className='d-flex flex-column justify-content-center align-items-center text-center'>
+                    <h3 className='artisan-titre'>{artisansData?.nom_entreprise}</h3>
+                    <hr style={{ width: '50%', border: '2px solid #00497c'}} className='opacity-75' />
                 </Row>
 
                 <Row className='m-5'>
@@ -39,7 +40,7 @@ const Artisan = () => {
                         <img className='w-50' src="/images/no-image.jpg" alt="Photo artisan" />
                     </Col>
                     
-                    <Col sm={12} md={6} className='mb-4 d-flex flex-column justify-content-center align-items-center'>
+                    <Col sm={12} md={6} className='mb-4 d-flex flex-column justify-content-center align-items-center artisan-info'>
                         <RatingStars note={artisansData?.note} />
                         <p>{artisansData?.Specialite?.nom_specialite}</p>
                         <p>{artisansData?.ville}</p>
@@ -53,7 +54,7 @@ const Artisan = () => {
                     </Col>
                 </Row>
 
-                <Row className='text-center mb-4'>
+                <Row className='artisan-description text-center mb-4'>
                     <p>{artisansData?.a_propos}</p>
                 </Row>
 

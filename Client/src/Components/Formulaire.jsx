@@ -113,7 +113,7 @@ function Formulaire() {
         </Row>
         <Row>
             <div className='text-center'>
-                <Button type="submit">Envoyer</Button>
+                <Button type="submit" className='form-btn'>Envoyer</Button>
             </div>
         </Row>
     </Form>
