@@ -33,7 +33,7 @@ const MaNavbar = () => {
             {/* ========================================================= */}
             {/* 1. OFFCANVAS PUR (Menu Mobile - Visible UNIQUEMENT en XS/SM) */}
             {/* ========================================================= */}
-            <Offcanvas show={showOffcanvas} onHide={handleClose} placement="start" className="d-md-none">
+            <Offcanvas show={showOffcanvas} onHide={handleClose} placement="start">
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Menu Principal</Offcanvas.Title>
                 </Offcanvas.Header>
@@ -48,12 +48,6 @@ const MaNavbar = () => {
                         ))}
                         <hr />
                         <LienTechnique classname="navbar" />
-                        {/* Liens Techniques
-                        {technicalLinks.map(link => (
-                            
-                                <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
-                            
-                        ))} */}
                     </Nav>
                 </Offcanvas.Body>
             </Offcanvas>
