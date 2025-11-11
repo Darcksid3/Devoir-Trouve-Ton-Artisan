@@ -47,7 +47,7 @@ const MaNavbar = () => {
                                 </Nav.Link>
                         ))}
                         <hr />
-                        <LienTechnique classname="navbar" />
+                        <LienTechnique classname="navbar" click={handleClose} />
                     </Nav>
                 </Offcanvas.Body>
             </Offcanvas>

@@ -28,7 +28,7 @@ const LienTechnique = (props) => {
     return (
         <div>
             {technicalLinks.map(link => (
-                <Nav.Link as={Link} to={link.path} key={link.path} className={className()} style={{display:'block'}}>{link.label}</Nav.Link>
+                <Nav.Link as={Link} to={link.path} key={link.path} className={className()} style={{display:'block'}} onClick={props.click}>{link.label}</Nav.Link>
             ))}
         </div>
     )
