@@ -68,7 +68,7 @@ const MaNavbar = () => {
                     <Button 
                         variant="outline-secondary" 
                         onClick={handleShow} 
-                        className="d-md-none order-1 me-2" // Affiché uniquement en mobile
+                        className="d-lg-none order-1 me-2" // Affiché uniquement en mobile
                         aria-label="Bouton du menu"
                     >
                         <List size={24} />
@@ -86,10 +86,13 @@ const MaNavbar = () => {
                     
                     {/* LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
                     
-                    <Nav className="d-none d-md-flex mx-auto order-md-2 " >
+                    <Nav className="d-none d-md-none d-lg-inline d-flex flex-row mx-auto order-md-2 flex-lg-nowrap" >
                         {categories && categories.map((categorie, index) => (
                             
-                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='navlink navlink--grey mx0 px-5 px-lg-3 px-md-1 px-sm-0'>
+                                <Nav.Link as={Link} key={index} 
+                                    to={`/Categories/${categorie?.nom_categorie}`} 
+                                    className='navlink navlink--grey mx0'
+                                    >
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
                             
