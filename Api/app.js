@@ -5,32 +5,17 @@ const cors = require('cors');
 
 const sequelize = require('./dbConnect/dbConnect');
 
-//! authorisation de connection pour la partie front end seulement
-/* Pour la production finale avec une seule origine
-const allowedOrigins = process.env.ORIGIN; 
-const corsOptions = {
-  // Le serveur n'autorisera que cette origine pour les requêtes de navigateur
-  origin: allowedOrigins, 
-  methods: 'GET', 
-  optionsSuccessStatus: 200 
-};
-*/
+const isDevelopement = process.env.NODE_ENV !== 'production'
 
 //! Pour la partie dev local avec plusieurs origines possibles a supprimer pour la production finale
-
-// 1. Récupérer la variable d'environnement (avec une valeur de secours)
 const allowedOriginsStr = process.env.ALLOWED_ORIGINS || 'http://localhost'; 
-
-// 2. Transformer la chaîne en tableau, en nettoyant les espaces
-const allowedOrigins = allowedOriginsStr.split(',').map(url => url.trim()); 
-
-const corsOptions = {
+const allowedOriginsDev = allowedOriginsStr.split(',').map(url => url.trim()); 
+const corsOptionsDev = {
   origin: function (origin, callback) {
     // Permettre les requêtes sans 'origin' (ex: Postman ou requêtes du même serveur)
     if (!origin) return callback(null, true); 
-
     // Vérifier si l'origine fait partie de la liste autorisée
-    if (allowedOrigins.includes(origin)) {
+    if (allowedOriginsDev.includes(origin)) {
       callback(null, true); // Autorisé
     } else {
       callback(new Error('Not allowed by CORS'), false); // Refusé
@@ -39,6 +24,19 @@ const corsOptions = {
   methods: 'GET', // Spécifiez les méthodes HTTP autorisées
   credentials: true, // Si vous utilisez des cookies ou headers d'authentification
 };
+
+//! authorisation de connection pour la partie front end seulement
+//* Pour la production finale avec une seule origine
+const allowedOriginsProd = process.env.ORIGIN; 
+const corsOptionsprod = {
+  // Le serveur n'autorisera que cette origine pour les requêtes de navigateur
+  origin: allowedOriginsProd, 
+  methods: 'GET', 
+  optionsSuccessStatus: 200 
+};
+
+const corsOptions = isDevelopement ? corsOptionsDev : corsOptionsprod
+
 
 
 
