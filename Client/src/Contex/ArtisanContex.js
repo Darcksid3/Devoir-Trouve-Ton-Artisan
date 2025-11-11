@@ -1,5 +1,5 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
-export const ArtisanContext = createContext({}); 
+export const ContextValue = createContext({}); 
 
-export const useArtisanIndex = () => useContext(ArtisanContext);
+export const useContextValue = () => useContext(ContextValue);

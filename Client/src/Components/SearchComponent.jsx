@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react';
 import { Form, Button, Row, Col} from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons'; 
 import { useNavigate } from 'react-router-dom';
-import { ArtisanContext } from '../Contex/ArtisanContex';
+import { ContextValue } from '../Contex/ArtisanContex';
 
 
 
 const SearchComponent = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
-    const artisanIndex = useContext(ArtisanContext); 
+    const { artisanIndex, isIndexLoading } = useContext(ContextValue);
     const navigate = useNavigate();
 
     console.log(artisanIndex); 
@@ -44,6 +44,9 @@ const SearchComponent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
+        if (isIndexLoading) {
+            return;
+        }
         const normalizedSearch = searchTerm.toLowerCase().trim();
         const artisanId = artisanIndex[normalizedSearch];
 
@@ -67,6 +70,7 @@ const SearchComponent = () => {
                             className="search me-2" 
                             value={searchTerm}
                             onChange={handleChange}
+                            disabled={isIndexLoading}
                         />
                         <Button aria-label="Bouton de recherche" variant="outline-secondary" className="search">
                             <Search />

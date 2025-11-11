@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { ArtisanContext } from '../Contex/ArtisanContex';
+import { ContextValue } from '../Contex/ArtisanContex';
 import { useRecupDb } from './FetchDb';
 
 export function ArtisanDataProvider({ children }) {
     const [fetchEnabled, setFetchEnabled] = useState(false);
 
-    // 1. Hook pour activer le fetch après un délai
     useEffect(() => {
         // Démarrer la requête API après 500ms (ajustez ce délai)
         const timer = setTimeout(() => {
@@ -45,11 +44,17 @@ useEffect(() => {
         setArtisanIndex(index);
         
     }, [rawData]); 
+
     
-    // état de chargement du Hook
-    if (!fetchEnabled || isFetchingData) { // Afficher le chargement si fetch n'est pas encore activé OU si les données sont en cours de fetch
-        console.log("Chargement de l'index")
-        //return <p>"Chargement de l'index..." </p>
+    const isIndexLoading = !fetchEnabled || isFetchingData;
+
+    const contextValue = {
+        artisanIndex, // index de recherche existant
+        isIndexLoading: isIndexLoading,
+        isIndexError: error !== null,
+    };
+    if (isIndexLoading) { 
+        console.log("Chargement de l'index");
     }
     
     if (error) {
@@ -57,9 +62,10 @@ useEffect(() => {
         return <p style={{ color: 'red' }}>Erreur de chargement de l'index: {error.message || 'inconnu'}</p>;
     }
 
+
 return (
-    <ArtisanContext.Provider value={artisanIndex}>
+    <ContextValue.Provider value={contextValue}>
         {children}
-    </ArtisanContext.Provider>
+    </ContextValue.Provider>
 );
 }
