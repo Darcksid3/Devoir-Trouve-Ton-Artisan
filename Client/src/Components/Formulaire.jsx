@@ -51,7 +51,7 @@ function Formulaire() {
     return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row>
-            <Col>
+            <Col md={12} lg={6}>
                 <Form.Group as={Col} className="mb-4 mt-3" md="12" controlId="nom"> 
                     <Form.Label>Votre Nom :</Form.Label>
                     <Form.Control
@@ -68,7 +68,6 @@ function Formulaire() {
                         Votre nom doit contenir entre 2 et 50 lettres.
                     </Form.Control.Feedback>
                 </Form.Group>
-
                 <Form.Group as={Col} className="mb-4" md="12" controlId="email">
                     <Form.Label>Votre Email :</Form.Label>
                     <Form.Control
@@ -114,11 +113,9 @@ function Formulaire() {
         </Row>
         <Row>
             <div className='text-center'>
-                <Button type="submit">Envoyer</Button>
+                <Button type="submit" className='form-btn'>Envoyer</Button>
             </div>
-        
         </Row>
-        
     </Form>
     );
 }

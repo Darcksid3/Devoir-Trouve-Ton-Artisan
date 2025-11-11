@@ -2,7 +2,7 @@ import React from 'react';
 
 // Le style de base des étoiles pour le dégradé de couleur
 const STAR_COLOR = "#ffc107"; 
-const EMPTY_COLOR = "#e4e5e9"; 
+const EMPTY_COLOR = "rgba(56, 64, 80, 0.5)"; 
 
 const RatingStars = ({ note }) => {
     // Le nombre total d'étoiles
@@ -25,25 +25,31 @@ const RatingStars = ({ note }) => {
                 <i 
                     key={i} 
                     className="bi bi-star-fill" 
-                    style={{ color: STAR_COLOR }}
+                    style={{ 
+                        color: STAR_COLOR, 
+                        fontSize: '1em',
+                        marginRight: '0.5em',
+                    }}
                 ></i>
             );
         } else if (i === fullStars + 1 && partialStarPercentage > 0) {
             // Étoile partielle (la dernière étoile)
             stars.push(
-                <div 
+                <div id="testdebug"
                     key={i} 
                     style={{ 
-                        display: 'inline-block',
+                        // display: 'inline-block',
                         position: 'relative',
                         width: '1em', // Taille de l'icône
                         height: '1em',
+                        fontSize: '1em',
+                        verticalAlign:'top',
                     }}
                 >
                     {/* Étoile vide en arrière-plan */}
                     <i 
                         className="bi bi-star-fill" 
-                        style={{ color: EMPTY_COLOR, position: 'absolute' }}
+                        style={{ color: EMPTY_COLOR, position: 'absolute', fontSize: '1em', marginRight: '0.5em',top: 0, left: 0 }}
                     ></i>
                     {/* Étoile pleine en avant-plan (remplissage partiel) */}
                     <i 
@@ -51,6 +57,10 @@ const RatingStars = ({ note }) => {
                         style={{ 
                             color: STAR_COLOR, 
                             position: 'absolute',
+                            fontSize: '1em',
+                            marginRight: '0.5em',
+                            top:0,
+                            left:0,
                             // remplissage : clip-path
                             clipPath: `inset(0 ${100 - partialStarPercentage}% 0 0)`
                         }}
@@ -63,14 +73,22 @@ const RatingStars = ({ note }) => {
                 <i 
                     key={i} 
                     className="bi bi-star" 
-                    style={{ color: EMPTY_COLOR }}
+                    style={{ color: EMPTY_COLOR, marginLeft: '0.5em'}}
                 ></i>
             );
         }
     }
 
     return (
-        <div title={`Note: ${note}/5`} style={{ display: 'inline-block' }}>
+        <div title={`Note: ${note}/5`} 
+            style={{ 
+                maxWidth: '60%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                alignItems: 'start',
+                marginBottom: '1em',
+                }}>
             {stars}
         </div>
     );

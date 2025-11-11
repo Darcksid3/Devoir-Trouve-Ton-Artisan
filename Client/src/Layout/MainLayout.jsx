@@ -10,6 +10,7 @@ function MainLayout() {
 
     return (
         <>
+        <div className='layout'>
             {/* 1. Le Header Commun à Toutes les Pages */}
             <Header />
 
@@ -21,7 +22,7 @@ function MainLayout() {
 
             {/* 3. Un Footer comun à toutes les pages */}
             <Footer />
-        
+        </div>
         </>
     );
 }

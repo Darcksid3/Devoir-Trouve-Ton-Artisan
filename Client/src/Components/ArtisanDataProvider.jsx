@@ -3,7 +3,19 @@ import { ArtisanContext } from '../Contex/ArtisanContex';
 import { useRecupDb } from './FetchDb';
 
 export function ArtisanDataProvider({ children }) {
-const { 
+    const [fetchEnabled, setFetchEnabled] = useState(false);
+
+    // 1. Hook pour activer le fetch après un délai
+    useEffect(() => {
+        // Démarrer la requête API après 500ms (ajustez ce délai)
+        const timer = setTimeout(() => {
+            setFetchEnabled(true);
+        }, 500); 
+
+        return () => clearTimeout(timer); // Nettoyage
+    }, []);
+    
+    const { 
         data: rawData, 
         isLoading: isFetchingData, 
         error 
@@ -33,12 +45,13 @@ useEffect(() => {
         setArtisanIndex(index);
         
     }, [rawData]); 
-
+    
     // état de chargement du Hook
-    if (isFetchingData) {
-        return <div>Chargement de l'index...</div>; 
+    if (!fetchEnabled || isFetchingData) { // Afficher le chargement si fetch n'est pas encore activé OU si les données sont en cours de fetch
+        console.log("Chargement de l'index")
+        //return <p>"Chargement de l'index..." </p>
     }
-
+    
     if (error) {
         // Gestion des erreurs de réseau
         return <p style={{ color: 'red' }}>Erreur de chargement de l'index: {error.message || 'inconnu'}</p>;
