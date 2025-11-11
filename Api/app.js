@@ -38,15 +38,11 @@ const corsOptionsprod = {
 const corsOptions = isDevelopement ? corsOptionsDev : corsOptionsprod
 
 
-
-
 //* Routes
 const artisanRouter = require('./routes/artisans');
 
-
 const app = express()
 app.use(cors(corsOptions));
-
 
 const models = require('./dbConnect/modelRelations');
 const PORT = process.env.PORT || 8101;
@@ -73,7 +69,6 @@ const startServer = async () => {
         process.exit(1); 
     }
 };
-
 
 startServer();
 
