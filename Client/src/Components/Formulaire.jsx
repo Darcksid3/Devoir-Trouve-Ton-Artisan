@@ -51,7 +51,7 @@ function Formulaire() {
     return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row>
-            <Col>
+            <Col md={12} lg={6}>
                 <Form.Group as={Col} className="mb-4 mt-3" md="12" controlId="nom"> 
                     <Form.Label>Votre Nom :</Form.Label>
                     <Form.Control

@@ -41,30 +41,19 @@ const MaNavbar = () => {
                     <Nav className="flex-column">
                         {/* Liens Principaux */}
                         {categories && categories.map((categorie, index) => (
-<<<<<<< HEAD
-                            <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose}>
-                                {categorie?.nom_categorie}
-                            </Nav.Link>
-=======
                             
                                 <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className="navlink navlink--grey" onClick={handleClose}>
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
->>>>>>> 71543f8 (Avancement global sur le sass)
                         ))}
                         <hr />
                         <LienTechnique classname="navbar" />
                         {/* Liens Techniques
                         {technicalLinks.map(link => (
-<<<<<<< HEAD
-                            <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
-                        ))}
-=======
                             
                                 <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
                             
                         ))} */}
->>>>>>> 71543f8 (Avancement global sur le sass)
                     </Nav>
                 </Offcanvas.Body>
             </Offcanvas>

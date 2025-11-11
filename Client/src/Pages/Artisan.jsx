@@ -29,29 +29,35 @@ const Artisan = () => {
                 
             />
             <Container>
-                <Row className='d-flex flex-column justify-content-center text-center border border-2 border-danger'>
-                    
+
+                <Row className='d-flex flex-column justify-content-center text-center'>
                     <h3>{artisansData?.nom_entreprise}</h3>
                 </Row>
-                <Row className='border border-2 border-danger m-5'>
-                    <Col className='sm-12 md-6 d-flex flex-row align-items-center'>
+
+                <Row className='m-5'>
+                    <Col sm={12} md={6} className='mb-4 d-flex justify-content-center align-items-center '>
                         <img className='w-50' src="/images/no-image.jpg" alt="Photo artisan" />
-                        
                     </Col>
                     
-                    <Col className='sm-12 md-6 d-flex flex-column justify-content-center'>
+                    <Col sm={12} md={6} className='mb-4 d-flex flex-column justify-content-center align-items-center'>
                         <RatingStars note={artisansData?.note} />
                         <p>{artisansData?.Specialite?.nom_specialite}</p>
                         <p>{artisansData?.ville}</p>
-                        <p><Link to={artisansData?.site_web}>{artisansData?.site_web}</Link></p>
+                        <p>
+                            {artisansData && artisansData.site_web ? (
+                                <Link to={artisansData.site_web}>{artisansData.site_web}</Link>
+                            ) : (
+                                "Cet artisan ne possède pas de site web"
+                            )
+                        }</p>
                     </Col>
                 </Row>
 
-                <Row className='text-center border border-2 border-danger '>
+                <Row className='text-center mb-4'>
                     <p>{artisansData?.a_propos}</p>
                 </Row>
 
-                <Row className='border border-2 border-danger '>
+                <Row className='mb-4 pt-4'>
                     <Formulaire />
                 </Row>
             </Container>
