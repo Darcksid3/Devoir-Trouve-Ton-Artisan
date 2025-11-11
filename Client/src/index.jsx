@@ -10,11 +10,11 @@ const basenamePath = import.meta.REACT_APP_ROUTER_BASE || '/';
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         
-            <BrowserRouter basename={basenamePath}> 
-                <ArtisanDataProvider>
-                    <App />
-                </ArtisanDataProvider>
-            </BrowserRouter>
+        <BrowserRouter basename={basenamePath}> 
+            <ArtisanDataProvider>
+                <App />
+            </ArtisanDataProvider>
+        </BrowserRouter>
         
     </StrictMode>,
 )

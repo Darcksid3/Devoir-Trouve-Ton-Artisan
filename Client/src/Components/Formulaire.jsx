@@ -68,7 +68,6 @@ function Formulaire() {
                         Votre nom doit contenir entre 2 et 50 lettres.
                     </Form.Control.Feedback>
                 </Form.Group>
-
                 <Form.Group as={Col} className="mb-4" md="12" controlId="email">
                     <Form.Label>Votre Email :</Form.Label>
                     <Form.Control
@@ -116,9 +115,7 @@ function Formulaire() {
             <div className='text-center'>
                 <Button type="submit">Envoyer</Button>
             </div>
-        
         </Row>
-        
     </Form>
     );
 }

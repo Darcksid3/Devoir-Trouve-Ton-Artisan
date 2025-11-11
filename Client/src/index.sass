@@ -1,48 +1,82 @@
 /* IMPORT */
+@use "sass:color";
+
 @font-face 
     font-family: 'graphik'
     src: url(/font/graphik.otf)
 
 /* VARIABLE */
-$max-width-site: 1280px
+$alpha: 1
+$max-width-site: 100%
 $bg-color-site: #f1f8fc
 $blue-color: #0074c7
 $dark-blue-color: #00497c
-$grey-color: #384050
+$grey-color: rgb(56, 64, 80)
+$grey-color-light:rgba(56, 64, 80,0.2)
 $red-color: #cd2c2e 
-$green-color: #82b864
+$green-color: rgb(130, 184, 100)
 
 /* GLOBAL STYLES */
 body 
     font-family: 'graphik', sans-serif
+<<<<<<< HEAD
     margin: 0
     padding:0 
     max-width: $max-width-site
+=======
+    margin: 0 auto
+    padding:0  
+    max-width: 100%
+>>>>>>> 71543f8 (Avancement global sur le sass)
     background-color: $bg-color-site
 
-h2 h3 h4
-    font-weight: 800
-    color: $blue-color
+header
+    border-bottom: 2px solid $grey-color-light
+    
+    header .Navbar
+        max-width: 1280px
 
+/* FOOTER */
+footer
+    background-color: $blue-color
+    margin-top: 2rem
+    margin-bottom: 0px
+    padding-top: 2rem 
+
+.footer-address
+    color: $bg-color-site
+
+/* FIN FOOTER */
+h2
+    font-weight: 700
+    color: $dark-blue-color
+    margin-bottom: 2rem
+
+    /*HOME*/   
 .ol-home li
     text-align: left
     margin-bottom: 15px
+    color: $grey-color
+
+.ol-home li strong
+    display: block
+    color: $dark-blue-color
 
 .basis 
     flex-basis: 33%
 
-.d-shadow 
-    box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.2)
+/* page not found */
+.not-found-h2
+    margin-bottom: 2rem
 
-
-.footer-pos 
-    display: contents
-    position: sticky
-    bottom: 0
-    border-top: 2px solid grey
-    box-shadow: 0px -5px 5px 0px grey
-    max-width: 1280px
-    border-bottom: 2px solid red
+/* REACT COMPONENTS */
+.layout
+    margin: 0px
+    padding: 0px
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
 footer 
     margin: 0px
@@ -63,13 +97,38 @@ footer
 .div-minicard-size
     display: contents
 
-.navbar-link
-    font-weight: bold
-    color: $grey-color
-.navbar-link:active
-    text-decoration: underline
+/* SEARCH */
+.search
+    border:0
+    border-bottom: 1px solid $blue-color
+    border-right: 1px solid $blue-color
+    border-radius: 0.5rem 0 0
+    background-color: #ffffff
 
-/* DEBUT Styles pour la superposition des suggestions de recherche */
+
+/* MINICARD */
+.minicard
+    border: 2px solid $green-color
+    box-shadow: 0 4px 5px 0px $grey-color
+/* FIN MINICARD */
+/* NAVLINK */
+.navlink
+    font-weight: 100
+    &:hover
+        font-weight: bold
+        text-decoration: underline
+    &--grey
+        color: $grey-color
+        &:hover
+            color: $dark-blue-color
+    &--white
+        color: $bg-color-site
+        &:hover
+            color: $grey-color
+
+/* FIN NAVLINK */
+
+/* Styles pour la superposition des suggestions de recherche */
 .search-suggestions-dropdown 
     
     position: absolute
@@ -78,14 +137,27 @@ footer
     
     /* Styles esthétiques et fonctionnels */
     z-index: 1050
+    margin-top: 0.5rem
+    padding: 1rem
     width: 100%
     max-height: 200px 
     overflow-y: auto
     background-color: white 
-    border: 1px solid #ccc
+    border: 2px solid $green-color
+    border-radius: 1rem 0 0 1rem
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
 
 .search-suggestions-dropdown .list-group-item 
     cursor: pointer
+<<<<<<< HEAD
 /* FIN Styles pour la superposition des suggestions de recherche */
+=======
+
+.notification
+    z-index: 1500
+    position: absolute
+    top: 0px
+    right: 0px
+    border: 1px dotted $red-color
+>>>>>>> 71543f8 (Avancement global sur le sass)

@@ -13,7 +13,7 @@ const NotFoundPage = () => {
             />
             <Container>
                 <Row className="d-flex -flex-columne justify-content-center text-center mt-5">
-                        <h2>La page que vous recherchez n'existe pas.</h2>
+                        <h2 className="not-found-h2">La page que vous recherchez n'existe pas.</h2>
                         <img src="/images/err404.png" alt="Logo erreur 404" style={{width: '50%'}}/>
                 </Row>
             </Container>

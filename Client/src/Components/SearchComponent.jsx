@@ -64,11 +64,11 @@ const SearchComponent = () => {
                             type="search"
                             placeholder="Nom de l'entreprise..."
                             aria-label="Rechercher"
-                            className="rounded-0 border-top-0 border-start-0 border-end-0 border-secondary border-3 me-2" 
+                            className="search me-2" 
                             value={searchTerm}
                             onChange={handleChange}
                         />
-                        <Button aria-label="Bouton de recherche" variant="outline-secondary" className="rounded-0 border-top-0 border-start-0 border-end-0 border-3">
+                        <Button aria-label="Bouton de recherche" variant="outline-secondary" className="search">
                             <Search />
                         </Button>
                     </Form>

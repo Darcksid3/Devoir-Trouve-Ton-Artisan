@@ -29,7 +29,7 @@ function App() {
                     {/* Routes Technique*/}
                     <Route path="/Mentions-legales"element={<MentionsLegales />} />
                     <Route path="/Politique-confidentialite"element={<PolitiqueConfidentialite />} />
-                    <Route path="/Accessibilité"element={<Accessibilite />} />
+                    <Route path="/Accessibilite"element={<Accessibilite />} />
                     <Route path="/Politique-cookies"element={<PolitiqueCookies />} /> 
                     {/* route de test */}
                     <Route path="/test" element={<PageTest />} />

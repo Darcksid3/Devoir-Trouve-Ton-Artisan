@@ -4,13 +4,7 @@ import { Container, Offcanvas, Nav, Button } from 'react-bootstrap';
 import { List } from 'react-bootstrap-icons' 
 import SearchComponent from './SearchComponent';
 import { useRecupDb } from '../Components/FetchDb';
-
-const technicalLinks = [
-    { path: '/Mentions-legales', label: 'Mentions Légales' },
-    { path: '/politique-cookies', label: 'Politique de Cookies' },
-    { path: '/Politique-confidentialite', label:'Politique de Confidentialité'},
-    { path: '/Accessibilite', label: 'Accessibilité'}
-];
+import LienTechnique from './LienTechnique';
 
 const MaNavbar = () => {
 
@@ -47,15 +41,30 @@ const MaNavbar = () => {
                     <Nav className="flex-column">
                         {/* Liens Principaux */}
                         {categories && categories.map((categorie, index) => (
+<<<<<<< HEAD
                             <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} onClick={handleClose}>
                                 {categorie?.nom_categorie}
                             </Nav.Link>
+=======
+                            
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className="navlink navlink--grey" onClick={handleClose}>
+                                    {categorie?.nom_categorie}
+                                </Nav.Link>
+>>>>>>> 71543f8 (Avancement global sur le sass)
                         ))}
                         <hr />
-                        {/* Liens Techniques */}
+                        <LienTechnique classname="navbar" />
+                        {/* Liens Techniques
                         {technicalLinks.map(link => (
+<<<<<<< HEAD
                             <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
                         ))}
+=======
+                            
+                                <Nav.Link as={Link} to={link.path} key={link.path} onClick={handleClose}>{link.label}</Nav.Link>
+                            
+                        ))} */}
+>>>>>>> 71543f8 (Avancement global sur le sass)
                     </Nav>
                 </Offcanvas.Body>
             </Offcanvas>
@@ -63,8 +72,8 @@ const MaNavbar = () => {
             {/* ========================================================= */}
             {/* 2. BARRE DE NAVIGATION PRINCIPALE                         */}
             {/* ========================================================= */}
-            <div className="d-shadow mb-5 border-bottom border-secondary border-3 ">
-                <Container fluid className="py-2 d-flex align-items-end"> 
+            <div className="Navbar mb-5">
+                <Container className="py-2 d-flex align-items-end"> 
                     
                     {/* BURGER (Visible en Mobile - Ordre 1) */}
                     <Button 
@@ -87,12 +96,13 @@ const MaNavbar = () => {
                     </div>
                     
                     {/* LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
-                    <Nav className="d-none d-md-flex mx-auto order-md-2 text-nowrap" >
+                    
+                    <Nav className="d-none d-md-flex mx-auto order-md-2 " >
                         {categories && categories.map((categorie, index) => (
                             
-                            <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='navbar-link mx0 px-5 px-lg-3 px-md-2 px-sm-1'>
-                                {categorie?.nom_categorie}
-                            </Nav.Link>
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className='navlink navlink--grey mx0 px-5 px-lg-3 px-md-1 px-sm-0'>
+                                    {categorie?.nom_categorie}
+                                </Nav.Link>
                             
                         ))} 
                     </Nav>
@@ -101,6 +111,7 @@ const MaNavbar = () => {
                     <div className="order-2 me-3">
                     <SearchComponent />
                     </div>
+                    
 
                 </Container>
             </div>
