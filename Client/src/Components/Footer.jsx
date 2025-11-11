@@ -22,7 +22,7 @@ const Footer = () => {
             <Container className='lg-text-left md-text-center mb-0 py-0'>
                 <Row className='mb-0 py-0'>
                     <Col md={6} sm={12} className='d-flex flex-column justify-content-center mx-auto text-start text-sm-center'>
-                    <Nav className='d-flex flex-column mx-auto align-items-center'>
+                    <Nav className=' d-flex flex-column mx-auto align-items-center'>
                         <LienTechnique class='footer' />
                     </Nav>
                     </Col>
