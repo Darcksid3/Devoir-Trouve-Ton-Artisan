@@ -11,7 +11,7 @@ const MiniCard = (props) => {
             <Card style={{ width: '18rem'}} className='minicard mb-2'>
                 <Card.Body>
                     <Card.Title> {props.nom} </Card.Title>
-                    <Card.Subtitle> Note : <RatingStars note={props.note} /> </Card.Subtitle>
+                    <Card.Subtitle className='d-flex flex-column align-items-center'> Note : <RatingStars note={props.note} /> </Card.Subtitle>
                     <Card.Text> {props.specialite} <br /> {props.ville} </Card.Text>
                 </Card.Body>
             </Card>
