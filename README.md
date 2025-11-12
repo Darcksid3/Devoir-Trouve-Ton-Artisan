@@ -27,9 +27,9 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
     - ✅ Mise en place du systeme de routeage.
     - ✅ Mise en place de toutes les pages.
     - ✅ Recherche d'un artisan par son nom.
-    - :X: Mise en place du style définitif du site.
+    - ✅ Mise en place du style définitif du site.
 5. rédaction du projet complet sous format PDF.
-    :x: Non débuté.
+    - ✅ Terminé.
 
 ## Utilisation 
 1) **Explication des outils API.**
@@ -49,7 +49,7 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
         => `npm i mariadb sequelize cors`
 
 1) **Explication des outils Client.**
-     - **React, React-Router, React-Script, Bootstrap, Bootstrap icon**
+     - **Vite@React, React-Router, Bootstrap, Bootstrap icon**
         Cela vas nous permetre de géré la partie visuelle du client.
      - **Helmet**
         Cette librairie vas nous etre utile pour géré le référencement du site.
@@ -57,10 +57,11 @@ Création d'un site web pour la région rhone-alpe permétant de trouver facilem
         Cette librairie est une version plus récente et moin lourde que *Axios*, elle vas permetre de faire les requette a l'API et de récupéré les information de la base de donnée.
 
 4) **Mise en place et téléchargement des divers outils du Client pour** (Windows).
-    - **React, React-Router, React-Script, Bootstrap, Bootstrap icon**
-        => `npm i react react-router-dom react-scripts react-bootstrap react-router-bootstrap bootstrap-icons`
+    - **Vite@React, React-Router, Bootstrap, Bootstrap icon**
+        => `npm create vite@latest my-react-app -- --template react` 
+        => `npm i react-router-dom react-bootstrap react-router-bootstrap bootstrap-icons`
     - **Helmet**
-        => `nom i helmet`
+        => `npm i react-helmet`
     - **Ky**
         => `npm i ky`
 ***
