@@ -21,21 +21,29 @@ const Footer = () => {
         <footer className='py-3'>
             <Container className='lg-text-left md-text-center mb-0 py-0'>
                 <Row className='mb-0 py-0'>
-                    <Col md={6} sm={12} className='d-flex flex-column mx-auto'>
+                    <Col md={4} sm={12} className='d-flex flex-column align-items-center mx-auto mb-4'>
+                    <img src="/images/aura-logo-footer.svg" alt="" className='w-50'/>
+                    </Col>
+                    <hr className='d-lg-none'/>
+                    <Col md={4} sm={12} className='d-flex flex-column mx-auto'>
                     <Nav className=' d-flex flex-column mx-auto align-items-center text-center'>
                         <LienTechnique class='footer' />
                     </Nav>
                     </Col>
                     <hr className='d-lg-none'/>
-                    <Col md={6} sm={12} className='mx-auto mb-0 pb-0 text-center'>
+                    <Col md={4} sm={12} className='mx-auto mb-0 pb-0 text-center'>
                         <address>
                             <div onClick={AddressGoogle} style={{cursor: 'pointer'}} className='footer-address'>
-                            <p>101 cours Charlemagne</p>
-                            <p>CS 20033</p>
-                            <p>69269 LYON CEDEX 02</p>
-                            <p>France</p>
+                                <p style={{fontWeight: 'Bolder', fontFamily: 'Graphik-Semibold'}}>Lyon</p>
+                                <p>101 cours Charlemagne</p>
+                                <p>CS 20033</p>
+                                <p>69269 LYON CEDEX 02</p>
+                                <p>France</p>
                             </div>
-                            <p><a href="tel:+33426734000" className='navlink navlink--white'>+33 (0)4 26 73 40 00</a></p>
+                            <p className='text-white'>
+                                <i className="bi bi-telephone" style={{marginRight: '1rem'}}></i>
+                                <a href="tel:+33426734000" className='navlink navlink--white'>+33 (0)4 26 73 40 00</a>
+                            </p>
                         </address>
                     </Col>
                 </Row>             

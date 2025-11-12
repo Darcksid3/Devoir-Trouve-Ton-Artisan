@@ -20,7 +20,7 @@ const LienTechnique = (props) => {
             const className = 'navlink navlink--grey'
             return className
         } else {
-            const className = 'navlink navlink--grey';
+            const className = 'navlink navlink--offcanva';
             return className
         }
     }

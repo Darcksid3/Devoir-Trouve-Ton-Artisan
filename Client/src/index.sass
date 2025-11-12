@@ -2,10 +2,21 @@
 @use "sass:color";
 
 @font-face 
-    font-family: 'graphik'
-    src: url(/font/graphik.otf)
+    font-family: 'Graphik-Regular'
+    src: url(/font/Graphik-Regular.ttf)
+@font-face
+    font-family: 'Graphik-Bold'
+    src: url(/font/Graphik-Bold.ttf)
+@font-face
+    font-family: 'Graphik-Semibold'
+    src: url(/font/Graphik-Semibold.ttf)
 
-/* VARIABLE */
+
+/* VARIABLE FONT */
+$regular: 'Graphik-Regular'
+$bold: 'Graphik-Bold'
+$semi-bold : 'Graphik-Semibold'
+/* VARIABLE COULEUR*/
 $alpha: 1
 $max-width-site: 100%
 $bg-color-site: #f1f8fc
@@ -23,8 +34,11 @@ body
     padding:0  
     max-width: 100%
     background-color: $bg-color-site
+    color: $grey-color
 
 header
+    padding: 0
+    margin: 0
     border-bottom: 2px solid $grey-color-light
     
     header .Navbar
@@ -38,6 +52,8 @@ footer
 
 .footer-address
     color: $bg-color-site
+    & p
+        line-height: 0.7rem
 
 .footer 
     margin: 0px
@@ -53,20 +69,43 @@ footer
         
 /* FIN FOOTER */
 
-h2
-    font-weight: 700
+h2, h3
     color: $dark-blue-color
     margin-bottom: 2rem
+    line-height: 1.2rem
+h2
+    font-family: $bold
+h3
+    font-family: $semi-bold
 
-/* HOME */   
-.ol-home li
-    text-align: left
-    margin-bottom: 15px
-    color: $grey-color
 
-.ol-home li strong
-    display: block
+
+/* HOME */ 
+
+.cadre
+    border: 1px solid $blue-color
+    border-radius: 1rem 5rem 1rem 5rem
+    box-shadow: 1rem 1rem 2rem $dark-blue-color 
+
+.ol-home 
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    list-style-type: none
+    
+
+.li-home
+    margin-top: 2rem
     color: $dark-blue-color
+    list-style: decimal
+    list-style-position: inside
+    font-weight: bold
+    &--right
+        margin-left: 7rem
+    & span
+        font-weight: normal
+        
 
 .basis 
     flex-basis: 33%
@@ -96,6 +135,7 @@ h2
     margin-bottom: 2rem
 
 /* REACT COMPONENTS */
+
 .layout
     margin: 0px
     padding: 0px
@@ -104,11 +144,6 @@ h2
     flex-direction: column
     justify-content: space-between
 
-
-
-
-/* REACT COMPONENTS */
-
 /* SEARCH */
 .search
     border:0
@@ -116,7 +151,6 @@ h2
     border-right: 1px solid $blue-color
     border-radius: 0.5rem 0 0
     background-color: #ffffff
-
 
 /* MINICARD */
 .div-minicard-size
@@ -132,16 +166,24 @@ h2
     display: inline
     font-weight: 100
     &:hover
-        font-weight: bold
+        font-weight: $regular
         text-decoration: underline
-    &--grey
+    &--offcanva
         color: $grey-color
         &:hover
+            color: $blue-color
+    &--grey
+        margin-right: 0.25rem
+        color: $dark-blue-color
+        &:hover
             color: $dark-blue-color
+            background-color: $bg-color-site
+        
     &--white
         color: $bg-color-site
         &:hover
             color: $grey-color
+    
 
 /* FIN NAVLINK */
 

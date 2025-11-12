@@ -42,7 +42,7 @@ const MaNavbar = () => {
                         {/* Liens Principaux */}
                         {categories && categories.map((categorie, index) => (
                             
-                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className="navlink navlink--grey" onClick={handleClose}>
+                                <Nav.Link as={Link} key={index} to={`/Categories/${categorie?.nom_categorie}`} className="navlink navlink--offcanva" onClick={handleClose}>
                                     {categorie?.nom_categorie}
                                 </Nav.Link>
                         ))}
@@ -83,7 +83,8 @@ const MaNavbar = () => {
                     <Nav className="d-none d-md-none d-lg-inline d-flex flex-row mx-auto order-md-2 flex-lg-nowrap" >
                         {categories && categories.map((categorie, index) => (
                             
-                                <Nav.Link as={Link} key={index} 
+                                <Nav.Link as={Link} key={index}
+                                    id="test"
                                     to={`/Categories/${categorie?.nom_categorie}`} 
                                     className='navlink navlink--grey mx0'
                                     >

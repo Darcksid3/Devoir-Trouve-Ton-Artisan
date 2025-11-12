@@ -12,39 +12,40 @@ const Home = () => {
             />
             
             <Container className="d-flex flex-row flex-wrap mx-auto" fluid>
-                <Row className="text-center p-2">
-                    <h2>Comment trouver mon artisan ?</h2>
-                    <Col lg={6} md={12} className="text-left d-flex flex-column align-items-center">
+                <Row >
+                    <h2 className="text-center p-2">Comment trouver mon artisan ?</h2>
+                    <Col lg={8} md={12} className="cadre">
                         <ol className="ol-home">
-                            <li> 
+                            
+                            <li className="li-home"> 
                                 <strong>Choisir la catégorie d’artisanat dans le menu</strong><br />
-                                Utilisez la barre de navigation pour sélectionner une catégorie générale d'artisan.<br />
+                                <span>Utilisez la barre de navigation pour sélectionner une catégorie générale d'artisanat.<br />
                                 Cela vous dirigeras vers une page avec les artisans et leur spécialité,<br />
-                                il ne vous resteras plus qu’as sélectionner l'artisan de votre choix.<br />
+                                il ne vous reste qu’as sélectionner l'artisan de votre choix.</span>
                             </li>
-                            <li>
+                            <li className="li-home li-home--right">
                                 <strong>Choisir un artisan </strong><br />
-                                Si vous connaissez son nom vous pouvez utilisez directement la barre de recherche,<br />
-                                sinon choisir un artisan en fonction de vos besoin spécifique, <br />
-                                une fois la catégorie sélectionner et être arrivé sur la page,<br />
+                                <span>Si vous connaissez son nom vous pouvez utilisez directement notre barre de recherche,<br />
+                                elle se situe en haut à droite du site. 
+                                Sinon pour choisir un artisan en fonction de vos besoin spécifique, une fois la catégorie sélectionner, <br />
                                 choisissez l’artisan qui vous correspond en fonction de sa spécialité<br />
-                                en cliquant sur sa carte. Vous accéderais a sa page.<br />
+                                en cliquant sur sa carte. Vous accéderais à sa page.</span>
                             </li>
-                            <li>
+                            <li className="li-home">
                                 <strong>Le contacter via le formulaire de contact </strong><br />
-                                La page de l'artisan contiens un formulaire de contact, remplissez le<br />
-                                pour lui envoyait un message donner un maximum d'information permettras a l’artisan<br />
-                                de connaître vos besoin spécifique et de mieux pouvoir vous répondre<br />
+                                <span>La page de l'artisan contiens un formulaire de contact, remplissez le<br />
+                                pour lui envoyait un message donner un maximum d'information permettras à l’artisan<br />
+                                de connaître vos besoin spécifique et de mieux pouvoir vous répondre</span>
                             </li>
-                            <li>
+                            <li className="li-home li-home--right">
                                 <strong>Une réponse sera apportée sous 48h</strong><br />
-                                Après avoir envoyait un message à l’artisan que vous avez sélectionner , <br />
+                                <span>Après avoir envoyait un message à l’artisan que vous avez sélectionner , <br />
                                 l’artisan vous répondra dans les 48 heures pour répondre à votre question, <br />
-                                ou prendre contact avec vous si besoin.<br />
+                                ou prendre contact avec vous si besoin.</span>
                             </li>
                         </ol>
                     </Col>
-                    <Col lg={6} md={12} className="d-flex flex-column align-items-center justify-content-around text-center ">
+                    <Col lg={4} md={12} className="d-flex flex-column align-items-center justify-content-around text-center">
                         <ArtisanDuMois />
                     </Col>
                 </Row>
