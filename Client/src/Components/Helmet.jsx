@@ -5,15 +5,15 @@ function MetaInfo(props) {
     <div>
       <Helmet>
         <title>{props.title}</title>
-        <meta name="description" content={props.description} />
-        <meta name="robots" content={props.robots} />
-        <meta name="googlebot" content={props.robots} />
+        <meta name="description" content={props.description}></meta>
+        <meta name="robots" content={props.robots}></meta>
+        <meta name="googlebot" content={props.robots}></meta>
 
-        <meta property="og:title" content={props.title} />
-        <meta property="og:description" content={props.description} />
+        <meta property="og:title" content={props.title}></meta>
+        <meta property="og:description" content={props.description}></meta>
 
-        <meta name="twitter:title" content={props.title} />
-        <meta name="twitter:description" content={props.description} />
+        <meta name="twitter:title" content={props.title}></meta>
+        <meta name="twitter:description" content={props.description}></meta>
       </Helmet>
     </div>
   );
