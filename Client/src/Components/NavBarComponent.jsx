@@ -80,7 +80,8 @@ const MaNavbar = () => {
                     
                     {/* LIENS NON TECHNIQUES (Visibles UNIQUEMENT en MD+) */}
                     
-                    <Nav className="d-none d-md-none d-lg-inline d-flex flex-row mx-auto order-md-2 flex-lg-nowrap" >
+                    <Nav className="d-none d-md-none d-lg-inline d-flex flex-row mx-auto order-md-2 flex-lg-nowrap" 
+                        >
                         {categories && categories.map((categorie, index) => (
                             
                                 <Nav.Link as={Link} key={index}
